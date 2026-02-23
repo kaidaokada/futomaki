@@ -79,8 +79,31 @@ h2 { color: #d4af37; border-bottom: 1px dotted #5a452b; padding-bottom: 15px; ma
 .modal-price { display: block; margin-top: 25px; font-size: 1.6em; color: #c9aa71; font-weight: bold; }
 
 /* Footer & Easter Egg */
-footer { text-align: center; padding: 40px 20px; color: #5a452b; font-size: 0.85em; max-width: 900px; margin: 0 auto; line-height: 1.4; }
-.egg-trigger { cursor: help; transition: color 0.4s; }
-.egg-trigger:hover::after { content: " Fich"; color: #d4af37; font-weight: bold; }
+footer { 
+    text-align: center; 
+    padding: 40px 20px; 
+    color: #5a452b; 
+    font-size: 0.85em; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    line-height: 1.4; 
+}
+
+.egg-trigger { 
+    text-decoration: none; 
+    color: inherit; 
+    cursor: help; 
+    transition: color 0.4s; 
+}
+
+.egg-trigger:hover {
+    color: #d4af37;
+}
+
+.egg-trigger:hover::after { 
+    content: " Fich"; 
+    color: #d4af37; 
+    font-weight: bold; 
+}
 
 @media (max-width: 768px) { .staff-member { flex-direction: column; text-align: center; } .menu-grid { grid-template-columns: 1fr; } main { padding: 30px 20px; } .banner { height: 180px; } h1 { font-size: 3em; } }
