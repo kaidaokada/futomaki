@@ -1,3 +1,4 @@
+/* Tab-Navigation */
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tab-content");
@@ -12,6 +13,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
+/* Modal-Steuerung */
 function openModal(modalId) {
     document.getElementById(modalId).style.display = "flex";
 }
