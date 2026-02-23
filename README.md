@@ -1,2 +1,2 @@
 # futomaki
-Website des RP-Hotspots "FUTOMAKI"
+Offizielle Website des fiktiven FFXIV-Restaurants  "FUTOMAKI"
