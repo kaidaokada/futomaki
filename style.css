@@ -1,3 +1,4 @@
+/* Grundlegende Einstellungen */
 body {
     font-family: 'Crimson Text', serif;
     background-color: #0a0806; color: #e8dcc4; margin: 0; padding: 0; line-height: 1.6;
@@ -17,10 +18,13 @@ h1 { font-size: 4.5em; color: #d4af37; text-shadow: 0 4px 15px rgba(0,0,0,0.8); 
 }
 .banner-text { font-size: 1.5em; text-shadow: 2px 2px 5px #000; font-style: italic; }
 
+/* Navigation */
 nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 40px 0; }
 .tab-button { background: transparent; color: #a89f91; border: none; border-bottom: 2px solid transparent; padding: 10px 20px; cursor: pointer; font-size: 1.3em; transition: 0.3s; }
+.tab-button:hover { color: #d4af37; }
 .tab-button.active { color: #d4af37; border-bottom: 2px solid #d4af37; font-weight: bold; }
 
+/* Hauptbereich */
 main { background-color: rgba(18, 14, 11, 0.85); max-width: 900px; margin: 0 auto 60px; padding: 50px; border-radius: 12px; box-shadow: 0 15px 50px rgba(0,0,0,0.8); border-top: 3px solid #d4af37; }
 .tab-content { display: none; animation: fadeIn 0.5s ease-out; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -48,7 +52,7 @@ h2 { color: #d4af37; border-bottom: 1px dotted #5a452b; padding-bottom: 15px; ma
 
 .menu-highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
 .menu-card { background: #1a130f; padding: 25px; border-radius: 6px; border-left: 2px solid #d4af37; text-align: center; cursor: pointer; transition: 0.3s; }
-.menu-card:hover { transform: translateY(-5px); }
+.menu-card:hover { transform: translateY(-5px); border-color: #e8dcc4; }
 
 /* Mitarbeiter */
 .staff-member { display: flex; gap: 40px; margin-bottom: 50px; align-items: center; }
@@ -61,13 +65,22 @@ h2 { color: #d4af37; border-bottom: 1px dotted #5a452b; padding-bottom: 15px; ma
 
 /* Footer & Easter Egg */
 footer { text-align: center; padding: 40px; color: #5a452b; font-size: 0.85em; }
-.egg-trigger { text-decoration: none; color: inherit; }
+.egg-trigger { text-decoration: none; color: inherit; cursor: help; }
+.egg-trigger:hover { color: #d4af37; }
 .egg-trigger:hover::after { content: " Fich"; color: #d4af37; font-weight: bold; }
 
 /* Modals */
 .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; }
-.modal-content { background: #1e1611; padding: 40px; border-radius: 8px; border: 1px solid #d4af37; text-align: center; max-width: 500px; }
-.close-modal { position: absolute; top: 10px; right: 20px; font-size: 2em; cursor: pointer; }
+.modal-content { background: #1e1611; padding: 40px; border-radius: 8px; border: 1px solid #d4af37; text-align: center; max-width: 500px; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.9); }
+.close-modal { position: absolute; top: 10px; right: 20px; font-size: 2em; cursor: pointer; color: #a89f91; transition: 0.3s; }
+.close-modal:hover { color: #d4af37; }
 .modal-price { color: #c9aa71; font-weight: bold; font-size: 1.5em; display: block; margin-top: 15px; }
 
-@media (max-width: 768px) { .staff-member { flex-direction: column; text-align: center; } .menu-grid { grid-template-columns: 1fr; } h1 { font-size: 3em; } }
+/* Responsive Korrekturen */
+@media (max-width: 768px) { 
+    main { padding: 30px 20px; }
+    .staff-member { flex-direction: column; text-align: center; } 
+    .menu-grid { grid-template-columns: 1fr; } 
+    h1 { font-size: 3em; } 
+    .banner { height: 180px; }
+}
