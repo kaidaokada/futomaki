@@ -22,14 +22,16 @@
 </head>
 <body>
 
-    <header>
-        <h1>FUTOMAKI</h1>
-        <div class="banner">
-            <span class="banner-text">Traditionelle Köstlichkeiten aus dem Herzen Othards</span>
-        </div>
-    </header>
+    <div id="header-container">
+        <header>
+            <h1>FUTOMAKI</h1>
+            <div class="banner">
+                <span class="banner-text">Traditionelle Köstlichkeiten aus dem Herzen Othards</span>
+            </div>
+        </header>
+    </div>
 
-    <nav>
+    <nav id="main-nav">
         <button class="tab-button active" onclick="openTab(event, 'willkommen')">Das Futomaki</button>
         <button class="tab-button" onclick="openTab(event, 'hausregeln')">Hinweise</button>
         <button class="tab-button" onclick="openTab(event, 'angebote')">Angebote</button>
@@ -38,7 +40,7 @@
         <button class="tab-button" onclick="openTab(event, 'mitarbeiter')">Mitarbeiter</button>
     </nav>
 
-    <main>
+    <main id="content-area">
         <section id="willkommen" class="tab-content" style="display: block;">
             <h2>Willkommen</h2>
             <details class="story-accordion">
@@ -193,7 +195,7 @@
         <section id="mitarbeiter" class="tab-content">
             <h2>Unser Team</h2>
             <div class="staff-member">
-                <div class="staff-image"><img src="kaida.png" alt="Kaida"></div>
+                <div class="staff-image"><img src="kaida.jpg" alt="Kaida"></div>
                 <div class="staff-info">
                     <h3>Kaida</h3>
                     <p>Die kunstvoll tätowierte Inhaberin, das Herz und die Sushimeisterin des Futomaki. Sie wacht über die Traditionen und sorgt dafür, dass jeder Bissen die Geschichte ihrer Heimat erzählt. Wenn du dich nicht benimmst wird sie dich sehr deutlich des Hauses verweisen.</p>
@@ -313,9 +315,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
