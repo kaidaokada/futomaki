@@ -22,6 +22,7 @@ function openTab(evt, tabName) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
+    /* Inhalt anzeigen und Button aktivieren */
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 
