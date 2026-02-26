@@ -18,23 +18,6 @@ body {
 
 h1, h2, h3, .tab-button, .menu-card { font-family: 'Spectral', serif; }
 
-/* Banner-Logik: Standardmäßig unsichtbar */
-.header-banner {
-    display: none;
-    width: 100%;
-    height: 400px;
-    background: url('header-banner.png') no-repeat center center;
-    background-size: cover;
-    border-bottom: 2px solid #d4af37;
-}
-
-/* Sichtbarkeit nur bei 1920px Bildschirmbreite */
-@media (min-width: 1920px) {
-    .header-banner {
-        display: block;
-    }
-}
-
 /* Header-Container für Ausblend-Effekt */
 #header-container {
     transition: max-height 0.5s ease, opacity 0.5s ease;
