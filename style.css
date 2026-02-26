@@ -34,14 +34,6 @@ h1, h2, h3, .tab-button, .menu-card { font-family: 'Spectral', serif; }
 header { text-align: center; padding: 60px 20px 30px; }
 h1 { font-size: 4.5em; color: #d4af37; text-shadow: 0 4px 15px rgba(0,0,0,0.8); letter-spacing: 6px; margin: 0; }
 
-.banner {
-    background-color: #1a130f; height: 250px; display: flex; align-items: center; justify-content: center;
-    border-radius: 8px; max-width: 900px; margin: 30px auto;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=1000&auto=format&fit=crop');
-    background-size: cover; background-position: center; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-.banner-text { font-size: 1.5em; text-shadow: 2px 2px 5px #000; font-style: italic; }
-
 /* Navigation & Tabs (Sticky) */
 nav {
     display: flex;
@@ -130,5 +122,4 @@ footer { text-align: center; padding: 40px; color: #5a452b; font-size: 0.85em; }
     .staff-member { flex-direction: column; text-align: center; } 
     .menu-grid { grid-template-columns: 1fr; } 
     h1 { font-size: 3em; } 
-    .banner { height: 180px; }
 }
