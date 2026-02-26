@@ -5,7 +5,8 @@ function openTab(evt, tabName) {
     var contentArea = document.getElementById("content-area");
 
     /* Verstecken/Anzeigen des Headers basierend auf dem Tab */
-    if (tabName === 'speisekarte' || tabName === 'getraenke') {
+    /* Jetzt inklusive 'mitarbeiter' */
+    if (tabName === 'speisekarte' || tabName === 'getraenke' || tabName === 'mitarbeiter') {
         header.classList.add("hidden");
     } else {
         header.classList.remove("hidden");
