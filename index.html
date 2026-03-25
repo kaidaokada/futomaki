@@ -16,19 +16,27 @@
     <meta property="og:description" content="Authentische Sushi-Kunst und östliche Gastfreundschaft im Herzen Othards.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Spectral:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <a class="skip-link" href="#content-area">Zum Inhalt springen</a>
+
     <div class="page-shell">
         <div id="header-container">
-            <header>
-                <p class="eyebrow">Othardische Gastlichkeit</p>
+            <header class="hero">
+                <div class="hero-mark">伍</div>
+                <p class="eyebrow">Haus für Reis, Feuer und Haltung</p>
                 <h1>FUTOMAKI</h1>
-                <p class="hero-copy">Eine liebevoll kuratierte Taverne für Sushi, warme Küche und einen Abend, der nach Tradition, Holzrauch und Gastfreundschaft klingt.</p>
+                <p class="hero-copy">Zwischen lackiertem Holz, gedämpftem Licht und dem Klang warmer Schalen serviert das Futomaki eine Küche, die nicht laut werden muss, um in Erinnerung zu bleiben.</p>
+                <div class="hero-ribbons" aria-label="Hauswerte">
+                    <span>Handwerk</span>
+                    <span>Gastfreundschaft</span>
+                    <span>Othardische Tradition</span>
+                </div>
             </header>
         </div>
+
         <nav id="main-nav" aria-label="Hauptnavigation" role="tablist">
             <button id="tab-willkommen" class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="willkommen" tabindex="0" data-tab="willkommen">Das Futomaki</button>
             <button id="tab-hausregeln" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="hausregeln" tabindex="-1" data-tab="hausregeln">Hinweise</button>
@@ -37,213 +45,288 @@
             <button id="tab-getraenke" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="getraenke" tabindex="-1" data-tab="getraenke">Getränkekarte</button>
             <button id="tab-team" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="team" tabindex="-1" data-tab="team">Team</button>
         </nav>
+
         <main id="content-area" tabindex="-1">
             <section id="willkommen" class="tab-content" role="tabpanel" aria-labelledby="tab-willkommen">
-                <h2>Willkommen</h2>
-                <details class="story-accordion">
+                <div class="section-banner">
+                    <p class="banner-label">Willkommen im Haus</p>
+                    <h2>Ein Ort, der aus Haltung gewachsen ist</h2>
+                    <p class="banner-copy">Das Futomaki ist keine Bühne für große Gesten. Es ist ein Haus, in dem gutes Essen, ruhige Aufmerksamkeit und gelebte Disziplin den Abend tragen.</p>
+                </div>
+
+                <div class="showcase-grid">
+                    <article class="showcase-card statement-card">
+                        <p class="card-kicker">Was uns trägt</p>
+                        <h3>Reis. Messer. Feuer. Geduld.</h3>
+                        <p>Nichts davon wird hier als Zierde behandelt. Jeder Teller folgt dem Anspruch, klar, würdevoll und ohne Übertreibung zu schmecken.</p>
+                        <ul class="detail-list">
+                            <li>frisch gerollte Sushi aus offener Handarbeit</li>
+                            <li>warme Küche mit kräftigen Brühen und ehrlichen Beilagen</li>
+                            <li>ein Gastraum, der Ruhe bewahrt, auch wenn er belebt ist</li>
+                        </ul>
+                    </article>
+
+                    <article class="showcase-card ledger-card">
+                        <p class="card-kicker">Auf einen Blick</p>
+                        <dl class="ledger">
+                            <div>
+                                <dt>Hausstil</dt>
+                                <dd>traditionsverbunden, warm, aufmerksam</dd>
+                            </div>
+                            <div>
+                                <dt>Bekannt für</dt>
+                                <dd>große Rollen, kräftige Brühen, klare Aromen</dd>
+                            </div>
+                            <div>
+                                <dt>Geist des Hauses</dt>
+                                <dd>Respekt vor Arbeit, Herkunft und Gegenwart</dd>
+                            </div>
+                        </dl>
+                    </article>
+                </div>
+
+                <details class="story-accordion" open>
                     <summary class="story-trigger">
-                        Bleibt ein Weilchen und hört zu
-                        <small class="click-hint">Klick mich!</small>
+                        Die Geschichte des Hauses
+                        <small class="click-hint">Öffnen und schließen</small>
                     </summary>
                     <div class="story-content">
-                        <p>Das Futomaki ist ein Sushi-Restaurant aus den ländlicheren Gebieten Othards, das als kleiner Bettlerstand eines Kindes begonnen hat, das sich irgendwie durchschlagen musste. Als eines von fünf verwaisten Geschwistern nutzte Kaida alles, was ihr blieb, um sich und ihre Schwestern zu ernähren: das Kochen.</p>
-                        <p>Besonders Sushi hatte es ihr angetan, und so begann sie, ihre Kochkünste zu verkaufen. Zuerst auf der Straße, bedroht von Armut, Gewalt und Korruption. Kaida gelang es jedoch, sich und ihre Schwestern zu schützen, zu versorgen und das Ganze später auszubauen. So wuchs das Futomaki ganz natürlich und wurde in dem Landstrich bekannt, den die Schwestern ihre Heimat nannten.</p>
-                        <p>Mit den Jahren zogen die Schwestern weiter und fanden eigene Wege. Kaida selbst verschlug es in den Westen, wo sie den Namen Futomaki mit sich trug und neu aufbaute: als etabliertes, schönes Restaurant, das wortwörtlich aus Staub, Dreck und Überlebenswillen entstand.</p>
-                        <p>Das Futomaki steht für Wachstum, Tradition und den Kampf gegen Windmühlen. Die Hälfte der Gewinne fließt in die Unterstützung von Waisenhäusern in armen Gegenden Othards. Kaida und ihre Mitarbeiterinnen Kalea, Yokomo und Ayu möchten, dass andere Kinder schöner aufwachsen können als sie selbst.</p>
+                        <p>Das Futomaki stammt aus den ländlicheren Gebieten Othards, wo man früh lernt, dass Wärme, Nahrung und Schutz niemals selbstverständlich sind. Kaida selbst spricht nur selten über ihre frühen Jahre, doch bekannt ist, dass sie gemeinsam mit ihren Geschwistern schon als Jugendliche lernen musste, sich mit wenig durchzuschlagen und füreinander einzustehen.</p>
+                        <p>Das Kochen wurde für sie zu mehr als bloßem Broterwerb. Es war Mittel zum Überleben, Ausdruck von Stolz und eine Kunst, die sie sich gegen jede Härte bewahrte. Besonders Sushi hatte es ihr angetan, und so begann sie, ihre Kochkünste zu verkaufen: zuerst auf der Straße, unter dem Druck von Armut, Gewalt und Korruption.</p>
+                        <p>Mit Ausdauer und unbeirrbarer Hand gelang es Kaida, ihre Schwestern zu schützen, sie zu versorgen und aus einem einfachen Stand etwas Beständiges wachsen zu lassen. Mit den Jahren trugen eigene Wege jede Schwester in eine andere Richtung. Kaida jedoch nahm den Namen Futomaki mit sich in den Westen und baute ihn dort neu auf.</p>
+                        <p>Heute steht das Haus für Wachstum, Tradition und den Willen, Würde nicht von Herkunft abhängig zu machen. Ein Teil der Gewinne fließt bis heute in die Unterstützung von Waisenhäusern in ärmeren Gegenden Othards.</p>
                     </div>
                 </details>
+
                 <details class="story-accordion">
                     <summary class="story-trigger">
-                        Die Stimmen unserer Gäste
-                        <small class="click-hint">Klick mich!</small>
+                        Worte aus dem Gastraum
+                        <small class="click-hint">Öffnen und schließen</small>
                     </summary>
                     <div class="story-content guest-quotes">
-                        <p>"Ein absolut tolles Ambiente, man fühlt sich sofort nach Othard versetzt."</p>
-                        <p>"Total lecker! Das beste Sushi, das ich seit Langem gegessen habe."</p>
-                        <p>"Wunderbares Personal, so aufmerksam und freundlich. Man fühlt sich wie ein Ehrengast."</p>
-                        <p>"Perfekte Portionen. Man wird satt, aber es ist immer noch Platz für die süßen Mochis."</p>
-                        <p>"Sehr professionell und authentisch. Ein echtes Highlight!"</p>
+                        <p>"Ein Haus mit Seele. Still, aber nicht kühl."</p>
+                        <p>"Das beste Sushi, das ich seit Langem gegessen habe. Nichts daran wirkt beliebig."</p>
+                        <p>"Man wird hier nicht nur bedient, sondern aufmerksam begleitet."</p>
+                        <p>"Die warmen Speisen sind genauso stark wie die Rollen. Selten so stimmig gegessen."</p>
+                        <p>"Ein Abend im Futomaki fühlt sich an, als würde jemand sehr genau wissen, was Gastfreundschaft bedeutet."</p>
                     </div>
                 </details>
             </section>
+
             <section id="hausregeln" class="tab-content" role="tabpanel" aria-labelledby="tab-hausregeln" hidden>
-                <h2>Bevor du reinkommst!</h2>
+                <div class="section-banner compact">
+                    <p class="banner-label">Hausordnung</p>
+                    <h2>So bleibt der Abend für alle gut</h2>
+                </div>
+
                 <div class="rules-container">
-                    <div class="rules-box bad">
-                        <h3>So fliegst du raus</h3>
+                    <article class="rules-box bad">
+                        <h3>Wofür hier kein Platz ist</h3>
                         <ul>
-                            <li>Respektloser Umgang</li>
-                            <li>Persönliche Dramen</li>
-                            <li>Unreifes Verhalten</li>
-                            <li>Übergriffigkeiten</li>
-                            <li>Unsittliche Aktionen</li>
-                            <li>Geschmacksverstärker</li>
+                            <li>respektloser Umgang mit Gästen oder Personal</li>
+                            <li>persönliche Dramen, die den Gastraum vereinnahmen</li>
+                            <li>unreifes, lautes oder provozierendes Verhalten</li>
+                            <li>Übergriffigkeiten jeder Art</li>
+                            <li>unsittliche Aktionen im Haus oder vor dem Haus</li>
+                            <li>jede Form absichtlicher Störung des Betriebs</li>
                         </ul>
-                    </div>
-                    <div class="rules-box good">
-                        <h3>Was du bekommst</h3>
+                    </article>
+
+                    <article class="rules-box good">
+                        <h3>Wofür wir stehen</h3>
                         <ul>
-                            <li>Freundliches und hilfsbereites Personal</li>
-                            <li>Leckere Speisen und Getränke</li>
-                            <li>Authentische östliche Küche</li>
-                            <li>Genug Platz für deine Beine</li>
-                            <li>Gute Laune und vollen Magen</li>
-                            <li>Einen runden Abend mit Sushi</li>
+                            <li>freundliches und wachsames Personal</li>
+                            <li>aufmerksame Bedienung ohne Aufdringlichkeit</li>
+                            <li>ehrliche Küche und sorgfältig bereitete Getränke</li>
+                            <li>Platz für ruhige Gespräche und gute Gesellschaft</li>
+                            <li>ein Abend, der angenehm bleibt, auch wenn das Haus voll ist</li>
+                            <li>Gastlichkeit, die mit Respekt beginnt</li>
                         </ul>
-                    </div>
+                    </article>
                 </div>
             </section>
+
             <section id="angebote" class="tab-content" role="tabpanel" aria-labelledby="tab-angebote" hidden>
-                <h2>Euer Aufenthalt im Futomaki</h2>
-                <div class="offers-grid">
-                    <div class="offer-item">
-                        <h3>Kulinarik &amp; Handwerk</h3>
-                        <p>Genießt handgefertigtes Sushi und warme Köstlichkeiten der östlichen Küche, die nach traditionellen Rezepten und mit höchster Sorgfalt zubereitet werden.</p>
-                    </div>
-                    <div class="offer-item">
-                        <h3>Traditionelle Atmosphäre</h3>
-                        <p>Taucht ein in ein Ambiente, das den Geist Othards atmet. Von der Einrichtung bis hin zur Gastfreundschaft ist jeder Besuch eine kleine Reise in den fernen Osten.</p>
-                    </div>
-                    <div class="offer-item full-width">
-                        <h3>Offene Nischen</h3>
-                        <p>Für Gäste, die etwas ruhiger sitzen möchten, bieten wir drei offen gestaltete Nischen am Rand des Gastraums an. Sie schaffen etwas Abstand zum allgemeinen Treiben, ohne den offenen und gastlichen Charakter des Futomaki zu verlieren.</p>
+                <div class="section-banner compact">
+                    <p class="banner-label">Was euch erwartet</p>
+                    <h2>Ein Abend im Futomaki</h2>
+                </div>
+
+                <div class="offers-grid curated-grid">
+                    <article class="offer-item">
+                        <p class="card-kicker">Aus der Hand der Küche</p>
+                        <h3>Sushi mit Gewicht und Ruhe</h3>
+                        <p>Keine dekorative Nebensache, sondern der Kern des Hauses: sauber gerollt, ausgewogen belegt und mit sicherem Gefühl für Textur, Temperatur und Sättigung.</p>
+                    </article>
+
+                    <article class="offer-item">
+                        <p class="card-kicker">Aus Topf und Pfanne</p>
+                        <h3>Warme Küche für lange Abende</h3>
+                        <p>Brühen, gegrillte Speisen, knusprige Beilagen und Gerichte, die den Tisch erden. Wer bleibt, soll nicht nur probieren, sondern wirklich ankommen.</p>
+                    </article>
+
+                    <article class="offer-item">
+                        <p class="card-kicker">Im Raum selbst</p>
+                        <h3>Atmosphäre ohne Theater</h3>
+                        <p>Dunkles Holz, gedeckte Farben und ein Gastraum, der nicht beeindrucken muss, um Charakter zu haben. Das Futomaki setzt auf Nähe, Würde und gute Ordnung.</p>
+                    </article>
+
+                    <article class="offer-item full-width signature-strip">
+                        <div>
+                            <p class="card-kicker">Für ruhigere Runden</p>
+                            <h3>Offene Nischen am Rand des Hauses</h3>
+                        </div>
+                        <p>Für Gäste, die etwas geschützter sitzen möchten, stehen drei offen gestaltete Nischen am Rand des Gastraums bereit. Sie bieten Abstand zum allgemeinen Treiben, ohne sich vom Hausgefühl zu lösen.</p>
                         <p class="service-note">Aufgrund der gesonderten Betreuung dieser Bereiche durch unser Personal erheben wir hierfür eine zusätzliche Servicegebühr von <strong>75 Gil</strong>.</p>
-                    </div>
+                    </article>
                 </div>
             </section>
+
             <section id="speisekarte" class="tab-content" role="tabpanel" aria-labelledby="tab-speisekarte" hidden>
-                <h2>Unsere Menüs für 150 Gil</h2>
+                <div class="section-banner compact">
+                    <p class="banner-label">Aus der Küche</p>
+                    <h2>Unsere Speisekarte</h2>
+                </div>
+
+                <div class="menu-story">
+                    <p>Wer zum ersten Mal bei uns einkehrt, findet in den Hausmenüs einen guten Einstieg. Sie verbinden Stimmung, Sättigung und Charakter des Hauses in einem Gangbild, das nicht beliebig zusammengestellt wirkt.</p>
+                </div>
+
+                <h3 class="subsection-title">Hausmenüs für 150 Gil</h3>
                 <div class="menu-highlight-grid">
-                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-kaida" data-modal="modal-kaida">Die deftige Kaida</div>
-                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-kalea" data-modal="modal-kalea">Die zarte Kalea</div>
-                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-momo" data-modal="modal-momo">Die süße Momo</div>
-                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-moench" data-modal="modal-moench">Der Bettelmönch</div>
-                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-samurai" data-modal="modal-samurai">Der Samurai</div>
-                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-ronin" data-modal="modal-ronin">Der Ronin</div>
-                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-wald" data-modal="modal-wald">Der Ruf des Waldes</div>
-                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-klinge" data-modal="modal-klinge">Die brennende Klinge</div>
+                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-kaida" data-modal="modal-kaida"><span class="menu-card-name">Die deftige Kaida</span><span class="menu-card-tag">kräftig und erdend</span></div>
+                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-kalea" data-modal="modal-kalea"><span class="menu-card-name">Die zarte Kalea</span><span class="menu-card-tag">klar und fein</span></div>
+                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-momo" data-modal="modal-momo"><span class="menu-card-name">Die süße Momo</span><span class="menu-card-tag">leicht und verspielt</span></div>
+                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-moench" data-modal="modal-moench"><span class="menu-card-name">Der Bettelmönch</span><span class="menu-card-tag">einfach und still</span></div>
+                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-samurai" data-modal="modal-samurai"><span class="menu-card-name">Der Samurai</span><span class="menu-card-tag">tragend und würdevoll</span></div>
+                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-ronin" data-modal="modal-ronin"><span class="menu-card-name">Der Ronin</span><span class="menu-card-tag">wild und salzig</span></div>
+                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-wald" data-modal="modal-wald"><span class="menu-card-name">Der Ruf des Waldes</span><span class="menu-card-tag">erdig und ruhig</span></div>
+                    <div class="menu-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal-klinge" data-modal="modal-klinge"><span class="menu-card-name">Die brennende Klinge</span><span class="menu-card-tag">scharf und wach</span></div>
                 </div>
-                <h2>Traditionelle Sushi</h2>
+
+                <h3 class="subsection-title">Sushi-Klassiker</h3>
                 <div class="menu-grid">
-                    <div class="menu-item"><div class="menu-item-header"><span>Nigiri</span><span>45 Gil</span></div><span class="menu-item-desc">Handgeformter Reis belegt mit Fisch oder Meeresfrüchten.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Maki</span><span>49 Gil</span></div><span class="menu-item-desc">Sushi-Rollen mit Nori, Reis und verschiedenen Füllungen.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Sashimi</span><span>52 Gil</span></div><span class="menu-item-desc">Dünne Scheiben rohen Fischs, pur serviert.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Temaki</span><span>50 Gil</span></div><span class="menu-item-desc">Handgerollte Sushi-Kegel mit Nori.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Uramaki</span><span>54 Gil</span></div><span class="menu-item-desc">Inside-Out-Rollen mit Reis außen.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Chirashi</span><span>48 Gil</span></div><span class="menu-item-desc">Schüssel mit Reis, rohem Fisch und Gemüse.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Inari</span><span>52 Gil</span></div><span class="menu-item-desc">Süße frittierte Tofutasche mit Reis.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Oshizushi</span><span>46 Gil</span></div><span class="menu-item-desc">In einer Holzform gepresstes Sushi.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Narezushi</span><span>45 Gil</span></div><span class="menu-item-desc">Fermentierter Fisch mit Reis.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Gunkan</span><span>58 Gil</span></div><span class="menu-item-desc">Sushi-Basis für Fischrogen oder weiche Zutaten.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Sushi Burger</span><span>50 Gil</span></div><span class="menu-item-desc">Reisbällchen als Brötchen mit Füllung.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Aburi</span><span>56 Gil</span></div><span class="menu-item-desc">Kurz über offener Flamme gegarter Fisch.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Kaisen-don</span><span>47 Gil</span></div><span class="menu-item-desc">Reisschüssel mit Meeresfrüchten.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Tekkadon</span><span>46 Gil</span></div><span class="menu-item-desc">Reis mit Thunfischscheiben.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Futomaki</span><span>50 Gil</span></div><span class="menu-item-desc">Dicke Sushi-Rollen mit vielen Zutaten.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>California Roll</span><span>55 Gil</span></div><span class="menu-item-desc">Mit Krabbenfleisch, Avocado und Gurke.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Dragon Roll</span><span>48 Gil</span></div><span class="menu-item-desc">Aal, Avocado und Krabbenfleisch.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Rainbow Roll</span><span>48 Gil</span></div><span class="menu-item-desc">Verschiedene Fischsorten im Regenbogen-Look.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Nigiri</span><span>45 Gil</span></div><span class="menu-item-desc">Handgeformter Reis mit klar gesetztem Fisch oder feinen Meeresfrüchten.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Maki</span><span>49 Gil</span></div><span class="menu-item-desc">Schmale Rollen mit Nori, Reis und ausgewogenen Füllungen.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Sashimi</span><span>52 Gil</span></div><span class="menu-item-desc">Pur geschnittener Fisch für Gäste, die dem Produkt selbst den Vortritt lassen.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Temaki</span><span>50 Gil</span></div><span class="menu-item-desc">Handgerollte Kegel, frisch, saftig und direkt aus der Bewegung serviert.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Uramaki</span><span>54 Gil</span></div><span class="menu-item-desc">Inside-Out-Rollen mit weicher Hülle und kräftigem Kern.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Chirashi</span><span>48 Gil</span></div><span class="menu-item-desc">Schüssel aus Reis, Fisch und Gemüse für den großzügigen Appetit.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Inari</span><span>52 Gil</span></div><span class="menu-item-desc">Süße Tofutaschen mit Reis und milder, weicher Tiefe.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Gunkan</span><span>58 Gil</span></div><span class="menu-item-desc">Kleine Schiffe für Rogen und Zutaten, die Halt und Spannung brauchen.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Futomaki</span><span>50 Gil</span></div><span class="menu-item-desc">Die dicken Rollen des Hauses, reich, ordentlich und niemals zufällig.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Aburi</span><span>56 Gil</span></div><span class="menu-item-desc">Kurz über Flamme geführter Fisch mit warmer Kante und weichem Kern.</span></div>
                 </div>
-                <h2>Traditionelle Küche</h2>
+
+                <h3 class="subsection-title">Warme Küche</h3>
                 <div class="menu-grid">
-                    <div class="menu-item"><div class="menu-item-header"><span>Ramen</span><span>35 Gil</span></div><span class="menu-item-desc">Nudelsuppe mit Brühe, Ei und Gemüse.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Tempura</span><span>40 Gil</span></div><span class="menu-item-desc">Frittierte Köstlichkeiten im Teigmantel.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Okonomiyaki</span><span>38 Gil</span></div><span class="menu-item-desc">Herzhafter östlicher Pfannkuchen.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Tonkatsu</span><span>45 Gil</span></div><span class="menu-item-desc">Paniertes Schweineschnitzel mit Reis.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Yakitori</span><span>35 Gil</span></div><span class="menu-item-desc">Gegrillte Hähnchenspieße mit Tare-Soße.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Udon</span><span>36 Gil</span></div><span class="menu-item-desc">Dicke Weizennudeln in heißer Brühe.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Gyudon</span><span>38 Gil</span></div><span class="menu-item-desc">Reis mit Rindfleisch und Zwiebeln.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Takoyaki</span><span>35 Gil</span></div><span class="menu-item-desc">Teigbällchen mit Oktopusfüllung.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Miso</span><span>25 Gil</span></div><span class="menu-item-desc">Leichte Misosuppe mit Tofu und Algen.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Karaage</span><span>40 Gil</span></div><span class="menu-item-desc">Knusprig frittierte Hähnchenstücke.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Ramen</span><span>35 Gil</span></div><span class="menu-item-desc">Brühe, Ei und Gemüse in einer Schale, die einen Abend zusammenhält.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Tempura</span><span>40 Gil</span></div><span class="menu-item-desc">Knusprig ausgebackene Happen mit leichter Hülle und gutem Biss.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Okonomiyaki</span><span>38 Gil</span></div><span class="menu-item-desc">Herzhafter Pfannkuchen, weich im Inneren und kräftig gewürzt.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Tonkatsu</span><span>45 Gil</span></div><span class="menu-item-desc">Paniertes Schweineschnitzel, saftig geschnitten und mit Reis serviert.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Yakitori</span><span>35 Gil</span></div><span class="menu-item-desc">Gegrillte Spieße mit Tare-Glanz und rauchiger Kante.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Karaage</span><span>40 Gil</span></div><span class="menu-item-desc">Knusprig frittierte Hähnchenstücke mit dunkler Würze und saftigem Kern.</span></div>
                 </div>
-                <h2>Süßes von Kitsune Momo</h2>
+
+                <h3 class="subsection-title">Süßes von Kitsune Momo</h3>
                 <div class="menu-grid">
-                    <div class="menu-item"><div class="menu-item-header"><span>Mochi</span><span>22 Gil</span></div><span class="menu-item-desc">Zäher Reiskuchen mit Bohnenpaste.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Daifuku</span><span>21 Gil</span></div><span class="menu-item-desc">Mochi mit süßer Füllung.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Dorayaki</span><span>20 Gil</span></div><span class="menu-item-desc">Pfannkuchen mit süßer Bohnenpaste.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Taiyaki</span><span>24 Gil</span></div><span class="menu-item-desc">Fischförmiges Gebäck, warm serviert.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Anmitsu</span><span>22 Gil</span></div><span class="menu-item-desc">Gelee, Früchte und Matcha-Eis.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Yokan</span><span>23 Gil</span></div><span class="menu-item-desc">Fester Gelee-Nachtisch aus Agar-Agar.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Mochi</span><span>22 Gil</span></div><span class="menu-item-desc">Zäher Reiskuchen mit süßem Widerstand und weichem Nachklang.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Daifuku</span><span>21 Gil</span></div><span class="menu-item-desc">Gefüllter Mochi für Gäste, die es sanft und rund mögen.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Dorayaki</span><span>20 Gil</span></div><span class="menu-item-desc">Warme Küchlein mit süßer Bohnenpaste und goldener Farbe.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Taiyaki</span><span>24 Gil</span></div><span class="menu-item-desc">Fischförmiges Gebäck, frisch serviert und außen leicht knusprig.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Anmitsu</span><span>22 Gil</span></div><span class="menu-item-desc">Ein leichter Abschied aus Gelee, Früchten und Matcha-Eis.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Yokan</span><span>23 Gil</span></div><span class="menu-item-desc">Fester Gelee-Nachtisch mit ruhiger Süße und sauberer Kante.</span></div>
                 </div>
             </section>
+
             <section id="getraenke" class="tab-content" role="tabpanel" aria-labelledby="tab-getraenke" hidden>
-                <h2>Traditionelle Getränke</h2>
-                <div class="menu-grid">
-                    <div class="menu-item"><div class="menu-item-header"><span>Nihonshu Sake</span><span>12 Gil</span></div><span class="menu-item-desc">Traditioneller japanischer Reiswein.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Amazake</span><span>10 Gil</span></div><span class="menu-item-desc">Süßes, alkoholfreies Reisgetränk.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Doburoku</span><span>13 Gil</span></div><span class="menu-item-desc">Ungefilterte, trübe Version von Sake.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Umeshu</span><span>14 Gil</span></div><span class="menu-item-desc">Likör aus eingelegten Ume-Früchten.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Kuchikamizake</span><span>22 Gil</span></div><span class="menu-item-desc">Antikes alkoholisches Zeremoniengetränk.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Shochu</span><span>16 Gil</span></div><span class="menu-item-desc">Destillat aus Reis oder Gerste.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Cha (Tee)</span><span>13 Gil</span></div><span class="menu-item-desc">Matcha-Tee, wichtig für Teezeremonien.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Sake-Kasu</span><span>13 Gil</span></div><span class="menu-item-desc">Nebenprodukt der Sake-Herstellung.</span></div>
+                <div class="section-banner compact">
+                    <p class="banner-label">Aus dem Schankraum</p>
+                    <h2>Unsere Getränkekarte</h2>
                 </div>
-                <h2>Cocktails</h2>
+
+                <h3 class="subsection-title">Traditionelle Getränke</h3>
                 <div class="menu-grid">
-                    <div class="menu-item"><div class="menu-item-header"><span>Sakura Martini</span><span>18 Gil</span></div><span class="menu-item-desc">Gin mit Kirschblütenlikör.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Ume Sour</span><span>17 Gil</span></div><span class="menu-item-desc">Umeshu mit süß-saurer Note.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Matcha Highball</span><span>13 Gil</span></div><span class="menu-item-desc">Whisky, Matcha-Tee und Soda.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Yuzu Collins</span><span>14 Gil</span></div><span class="menu-item-desc">Shochu mit frischem Yuzu-Saft.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Sake Mojito</span><span>12 Gil</span></div><span class="menu-item-desc">Sake mit Minze und Limette.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Shiso Gimlet</span><span>13 Gil</span></div><span class="menu-item-desc">Gin mit Limette und Shiso-Blättern.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Wasabi Bloody Mary</span><span>13 Gil</span></div><span class="menu-item-desc">Pikant mit Wasabi und Sake.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Momo Bellini</span><span>16 Gil</span></div><span class="menu-item-desc">Sake mit Pfirsichpüree und Yuzu.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Hojicha Old Fashioned</span><span>13 Gil</span></div><span class="menu-item-desc">Whisky mit geröstetem Hojicha-Tee.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Kokuto Daiquiri</span><span>13 Gil</span></div><span class="menu-item-desc">Rum mit dunklem Zucker und Shiso.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Nihonshu Sake</span><span>12 Gil</span></div><span class="menu-item-desc">Klarer Reiswein für ruhige Schlucke und warme Tische.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Amazake</span><span>10 Gil</span></div><span class="menu-item-desc">Mildes, süßes Reisgetränk ohne Schärfe, weich und freundlich.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Doburoku</span><span>13 Gil</span></div><span class="menu-item-desc">Trübe Variante mit rustikalem Körper und ehrlichem Charakter.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Umeshu</span><span>14 Gil</span></div><span class="menu-item-desc">Pflaumenlikör mit runder Frucht und dunkler Süße.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Shochu</span><span>16 Gil</span></div><span class="menu-item-desc">Klares Destillat für Gäste, die es streng und direkt mögen.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Cha (Tee)</span><span>13 Gil</span></div><span class="menu-item-desc">Tee aus dem Haus, sorgfältig geführt und mit Ruhe serviert.</span></div>
                 </div>
-                <h2>Hauslimonaden</h2>
+
+                <h3 class="subsection-title">Cocktails des Hauses</h3>
                 <div class="menu-grid">
-                    <div class="menu-item"><div class="menu-item-header"><span>Lychee-Limonade</span><span>12 Gil</span></div><span class="menu-item-desc">Lychee-Püree und frische Minze.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Ramune</span><span>10 Gil</span></div><span class="menu-item-desc">Klassische Limo mit Glasperle.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Mango-Minz-Limo</span><span>13 Gil</span></div><span class="menu-item-desc">Süße Mango mit kühler Minze.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Yuzu Ale</span><span>11 Gil</span></div><span class="menu-item-desc">Yuzu mit Sojamilch.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Kiwi-Apfel-Limo</span><span>14 Gil</span></div><span class="menu-item-desc">Säuerlich-süßer Fruchtmix.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Momo's Melone</span><span>12 Gil</span></div><span class="menu-item-desc">Honigmelone mit Eiskristallen.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Honigmelone-Minz-Limo</span><span>13 Gil</span></div><span class="menu-item-desc">Würzige Minze mit süßer Melone.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Kaidas Sahne Klecks</span><span>10 Gil</span></div><span class="menu-item-desc">Limo mit einer Kugel Eiscreme.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Apfel-Rolanbeere-Limo</span><span>13 Gil</span></div><span class="menu-item-desc">Apfelsaft mit Erdbeerpüree.</span></div>
-                    <div class="menu-item"><div class="menu-item-header"><span>Mogkalea</span><span>13 Gil</span></div><span class="menu-item-desc">Kaffee mit Mogry-Sahnehaube.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Sakura Martini</span><span>18 Gil</span></div><span class="menu-item-desc">Blütig, kühl und feiner, als sein Name vermuten lässt.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Ume Sour</span><span>17 Gil</span></div><span class="menu-item-desc">Frucht und Säure in sauberer Balance.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Matcha Highball</span><span>13 Gil</span></div><span class="menu-item-desc">Whisky und Matcha in einer herb-frischen Verbindung.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Yuzu Collins</span><span>14 Gil</span></div><span class="menu-item-desc">Hell, zitrisch und mit klarem, langen Nachhall.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Momo Bellini</span><span>16 Gil</span></div><span class="menu-item-desc">Pfirsich und Yuzu für einen weichen, freundlichen Einstieg.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Hojicha Old Fashioned</span><span>13 Gil</span></div><span class="menu-item-desc">Dunkel, geröstet und wie gemacht für späte Stunden.</span></div>
+                </div>
+
+                <h3 class="subsection-title">Hauslimonaden</h3>
+                <div class="menu-grid">
+                    <div class="menu-item"><div class="menu-item-header"><span>Lychee-Limonade</span><span>12 Gil</span></div><span class="menu-item-desc">Frische Minze trifft auf süße, klare Frucht.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Ramune</span><span>10 Gil</span></div><span class="menu-item-desc">Klassisch, kühl und mit dem vertrauten Klang im Glas.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Mango-Minz-Limo</span><span>13 Gil</span></div><span class="menu-item-desc">Sonnige Süße mit kalter Kräuterfrische.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Kiwi-Apfel-Limo</span><span>14 Gil</span></div><span class="menu-item-desc">Lebendig, hell und ein wenig schärfer in der Frucht.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Momo's Melone</span><span>12 Gil</span></div><span class="menu-item-desc">Honigmelone auf Eis für den sanften Ausklang.</span></div>
+                    <div class="menu-item"><div class="menu-item-header"><span>Kaidas Sahne Klecks</span><span>10 Gil</span></div><span class="menu-item-desc">Hauslimonade mit einer Kugel Eiscreme, überraschend weich.</span></div>
                 </div>
             </section>
+
             <section id="team" class="tab-content" role="tabpanel" aria-labelledby="tab-team" hidden>
-                <h2>Es haben die Ehre</h2>
+                <div class="section-banner compact">
+                    <p class="banner-label">Die Hände des Hauses</p>
+                    <h2>Es haben die Ehre</h2>
+                </div>
+
                 <div class="team-grid">
-                    <div class="team-member-card">
+                    <article class="team-member-card">
                         <div class="staff-image"><img src="kaida.jpg" alt="Porträt von Kaida" loading="lazy" decoding="async"></div>
                         <div class="staff-info">
+                            <p class="card-kicker">Inhaberin</p>
                             <h3>Kaida</h3>
-                            <p>Die kunstvoll tätowierte Inhaberin, das Herz und die Sushimeisterin des Futomaki. Sie wacht über die Traditionen und sorgt für authentischen Genuss.</p>
+                            <p>Die tätowierte Herrin des Hauses. Sie hält die Linie der Küche streng, aber nie ohne Würde, und wacht darüber, dass aus Arbeit Haltung wird.</p>
                         </div>
-                    </div>
-                    <div class="team-member-card">
+                    </article>
+
+                    <article class="team-member-card">
                         <div class="staff-image"><img src="kalea.jpg" alt="Porträt von Kalea" loading="lazy" decoding="async"></div>
                         <div class="staff-info">
+                            <p class="card-kicker">Schankraum</p>
                             <h3>Kalea</h3>
-                            <p>Unsere Hüterin der Kelche. Sie beherrscht die Kunst der othardischen Mixkunst und sorgt dafür, dass keine Kehle im Futomaki trocken bleiben muss.</p>
+                            <p>Bewahrt den Überblick über Kelche, Karaffen und Gespräche. Ihre Getränke wirken fein abgestimmt, weil sie den Raum ebenso gut liest wie die Flasche.</p>
                         </div>
-                    </div>
-                    <div class="team-member-card">
+                    </article>
+
+                    <article class="team-member-card">
                         <div class="staff-image"><img src="yokomo.jpg" alt="Porträt von Yokomo" loading="lazy" decoding="async"></div>
                         <div class="staff-info">
+                            <p class="card-kicker">Warme Küche</p>
                             <h3>Yokomo</h3>
-                            <p>Die Seele der warmen Küche. Wo Kaida Reis formt, bändigt Yokomo das Feuer und bereitet herzhafte Köstlichkeiten jenseits der Sushi-Matte zu.</p>
+                            <p>Wo Kaida Reis formt, hält Yokomo Feuer und Pfanne in Bewegung. Ihre Speisen geben dem Haus Gewicht, Duft und den nötigen langen Atem.</p>
                         </div>
-                    </div>
-                    <div class="team-member-card">
+                    </article>
+
+                    <article class="team-member-card">
                         <div class="staff-image"><img src="ayu.jpg" alt="Porträt von Ayu" loading="lazy" decoding="async"></div>
                         <div class="staff-info">
+                            <p class="card-kicker">Gastraum</p>
                             <h3>Ayu</h3>
-                            <p>Die Blume unseres Gastraums. Mit der Anmut eines Herbstblattes geleitet sie Gäste zu ihren Plätzen und vertreibt mit ihrem Lächeln die Alltagssorgen.</p>
+                            <p>Empfängt, begleitet und hält den Abend im Fluss. Ihre Ruhe sorgt dafür, dass selbst volle Stunden leicht und geordnet wirken.</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </section>
         </main>
+
         <footer>
             <p class="footer-note">&copy; 2026 Futomaki. Das Design und die Zusammenstellung dieser Präsenz sind urheberrechtlich geschützt.</p>
         </footer>
     </div>
+
     <div id="modal-kaida" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-kaida-title" hidden>
         <div class="modal-content">
             <button class="close-modal" type="button" aria-label="Menü schließen" data-close-modal>&times;</button>
@@ -316,6 +399,7 @@
             <span class="modal-price">150 Gil</span>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
