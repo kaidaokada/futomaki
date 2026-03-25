@@ -1,40 +1,182 @@
-/* Tab-Navigation */
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    var header = document.getElementById("header-container");
-    var contentArea = document.getElementById("content-area");
+const HEADER_HIDE_TABS = new Set(["speisekarte", "getraenke", "team"]);
 
-    /* Verstecken/Anzeigen des Headers basierend auf dem Tab */
-    if (tabName === 'speisekarte' || tabName === 'getraenke' || tabName === 'team') {
-        header.classList.add("hidden");
-    } else {
-        header.classList.remove("hidden");
+let activeModal = null;
+let lastFocusedElement = null;
+
+function setActiveTab(tabName, options = {}) {
+    const { updateHash = true, moveFocus = false } = options;
+    const header = document.getElementById("header-container");
+    const contentArea = document.getElementById("content-area");
+    const buttons = Array.from(document.querySelectorAll(".tab-button"));
+    const panels = Array.from(document.querySelectorAll(".tab-content"));
+    const nextButton = buttons.find((button) => button.dataset.tab === tabName);
+    const nextPanel = document.getElementById(tabName);
+
+    if (!nextButton || !nextPanel) {
+        return;
     }
 
-    /* Tab-Inhalte umschalten */
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
+    header.classList.toggle("hidden", HEADER_HIDE_TABS.has(tabName));
 
-    tablinks = document.getElementsByClassName("tab-button");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+    buttons.forEach((button) => {
+        const isActive = button === nextButton;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+        button.setAttribute("tabindex", isActive ? "0" : "-1");
+    });
 
-    /* Inhalt anzeigen und Button aktivieren */
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+    panels.forEach((panel) => {
+        panel.hidden = panel !== nextPanel;
+    });
 
-    /* Scrollposition im Inhaltsbereich zurücksetzen */
     contentArea.scrollTop = 0;
+
+    if (updateHash) {
+        history.replaceState(null, "", `#${tabName}`);
+    }
+
+    if (moveFocus) {
+        nextButton.focus();
+    }
 }
 
-/* Modal-Steuerung */
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = "flex";
+function getFocusableElements(container) {
+    return Array.from(
+        container.querySelectorAll(
+            'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        )
+    );
 }
 
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
+function openModal(modalId, trigger) {
+    const modal = document.getElementById(modalId);
+
+    if (!modal) {
+        return;
+    }
+
+    lastFocusedElement = trigger || document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    activeModal = modal;
+
+    const focusable = getFocusableElements(modal);
+    if (focusable.length > 0) {
+        focusable[0].focus();
+    }
 }
+
+function closeModal(modal) {
+    if (!modal) {
+        return;
+    }
+
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+    activeModal = null;
+
+    if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
+    }
+}
+
+function handleTabKeydown(event) {
+    const buttons = Array.from(document.querySelectorAll(".tab-button"));
+    const currentIndex = buttons.indexOf(event.currentTarget);
+    let targetIndex = currentIndex;
+
+    if (event.key === "ArrowRight") {
+        targetIndex = (currentIndex + 1) % buttons.length;
+    } else if (event.key === "ArrowLeft") {
+        targetIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+    } else if (event.key === "Home") {
+        targetIndex = 0;
+    } else if (event.key === "End") {
+        targetIndex = buttons.length - 1;
+    } else {
+        return;
+    }
+
+    event.preventDefault();
+    setActiveTab(buttons[targetIndex].dataset.tab, { moveFocus: true });
+}
+
+function handleDocumentKeydown(event) {
+    if (!activeModal) {
+        return;
+    }
+
+    if (event.key === "Escape") {
+        closeModal(activeModal);
+        return;
+    }
+
+    if (event.key !== "Tab") {
+        return;
+    }
+
+    const focusable = getFocusableElements(activeModal);
+    if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const tabButtons = Array.from(document.querySelectorAll(".tab-button"));
+    const menuCards = Array.from(document.querySelectorAll(".menu-card"));
+    const modalClosers = Array.from(document.querySelectorAll("[data-close-modal]"));
+    const hashTab = window.location.hash.replace("#", "");
+    const defaultTab = tabButtons[0]?.dataset.tab;
+    const initialTab = tabButtons.some((button) => button.dataset.tab === hashTab)
+        ? hashTab
+        : defaultTab;
+
+    tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            setActiveTab(button.dataset.tab);
+        });
+        button.addEventListener("keydown", handleTabKeydown);
+    });
+
+    menuCards.forEach((card) => {
+        card.addEventListener("click", () => openModal(card.dataset.modal, card));
+        card.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openModal(card.dataset.modal, card);
+            }
+        });
+    });
+
+    modalClosers.forEach((button) => {
+        button.addEventListener("click", () => {
+            closeModal(button.closest(".modal-overlay"));
+        });
+    });
+
+    document.querySelectorAll(".modal-overlay").forEach((modal) => {
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                closeModal(modal);
+            }
+        });
+    });
+
+    document.addEventListener("keydown", handleDocumentKeydown);
+
+    if (initialTab) {
+        setActiveTab(initialTab, { updateHash: Boolean(hashTab) });
+    }
+});
