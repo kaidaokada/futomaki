@@ -12,4 +12,4 @@ Die Seite ist eine statische Website mit:
 
 ## Lokale Nutzung
 
-Die Seite benoetigt keinen Build-Schritt. Zum lokalen Testen reicht es, `index.html` im Browser zu oeffnen.
+Die Seite benötigt keinen Build-Schritt. Zum lokalen Testen reicht es, `index.html` im Browser zu öffnen.
