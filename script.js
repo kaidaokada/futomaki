@@ -1,4 +1,4 @@
-const HEADER_HIDE_TABS = new Set(["speisekarte", "getraenke", "team"]);
+const HEADER_HIDE_TABS = new Set(["angebote", "speisekarte", "getraenke", "team"]);
 
 let activeModal = null;
 let lastFocusedElement = null;

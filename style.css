@@ -117,7 +117,7 @@ summary,
 
 .hero {
     position: relative;
-    padding: 72px 20px 42px;
+    padding: 46px 20px 24px;
     text-align: center;
 }
 
@@ -125,8 +125,8 @@ summary,
 .hero::after {
     content: "";
     position: absolute;
-    top: 42px;
-    width: min(20vw, 160px);
+    top: 28px;
+    width: min(16vw, 120px);
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.65), transparent);
 }
@@ -140,15 +140,15 @@ summary,
 }
 
 .hero-mark {
-    width: 68px;
-    height: 68px;
-    margin: 0 auto 18px;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
     display: grid;
     place-items: center;
     border: 1px solid var(--border-strong);
     border-radius: 50%;
     color: var(--accent);
-    font-size: 1.85rem;
+    font-size: 1.2rem;
     background: rgba(255, 255, 255, 0.03);
     box-shadow: var(--shadow-soft);
 }
@@ -163,40 +163,40 @@ summary,
 }
 
 .eyebrow {
-    font-size: 0.95rem;
+    font-size: 0.82rem;
 }
 
 h1 {
-    margin: 8px 0 0;
+    margin: 4px 0 0;
     color: var(--accent);
-    font-size: clamp(3.2rem, 8vw, 5.4rem);
+    font-size: clamp(2.5rem, 6.2vw, 4.2rem);
     line-height: 0.95;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-shadow: 0 8px 28px rgba(0, 0, 0, 0.66);
 }
 
 .hero-copy {
-    max-width: 46rem;
-    margin: 18px auto 0;
-    font-size: 1.22rem;
+    max-width: 38rem;
+    margin: 12px auto 0;
+    font-size: 1.02rem;
     color: var(--text-main);
 }
 
 .hero-ribbons {
-    margin-top: 24px;
+    margin-top: 14px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .hero-ribbons span {
-    padding: 8px 14px;
+    padding: 5px 10px;
     border: 1px solid var(--border-soft);
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.04);
     color: var(--text-soft);
-    font-size: 0.95rem;
+    font-size: 0.82rem;
 }
 
 nav {
@@ -464,9 +464,34 @@ h2 {
     margin-bottom: 30px;
 }
 
+.section-jump-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 26px;
+}
+
+.section-jump-links a {
+    padding: 7px 12px;
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-soft);
+    text-decoration: none;
+    font-size: 0.92rem;
+}
+
+.section-jump-links a:hover,
+.section-jump-links a:focus-visible {
+    color: var(--accent-bright);
+    border-color: rgba(233, 198, 93, 0.35);
+    background: rgba(212, 175, 55, 0.07);
+}
+
 .subsection-title {
     margin-top: 34px;
     padding-bottom: 10px;
+    scroll-margin-top: 96px;
     border-bottom: 1px dotted rgba(212, 175, 55, 0.26);
 }
 
@@ -645,12 +670,28 @@ footer {
     }
 
     .hero {
-        padding-top: 54px;
+        padding: 34px 16px 18px;
     }
 
     .hero::before,
     .hero::after {
         display: none;
+    }
+
+    .hero-mark {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    .hero-copy {
+        margin-top: 10px;
+        font-size: 0.96rem;
+    }
+
+    .hero-ribbons {
+        margin-top: 10px;
     }
 
     nav {
@@ -673,6 +714,37 @@ footer {
     .offer-item,
     .team-member-card {
         padding: 20px;
+    }
+
+    .section-jump-links {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .section-jump-links a {
+        padding: 6px 10px;
+        font-size: 0.86rem;
+    }
+
+    .menu-card {
+        min-height: 128px;
+        padding: 18px 18px;
+    }
+
+    .menu-card-name {
+        font-size: 1.08rem;
+    }
+
+    .menu-card-tag {
+        font-size: 0.92rem;
+    }
+
+    .menu-item {
+        padding: 15px 16px;
+    }
+
+    .menu-item-desc {
+        font-size: 0.92rem;
     }
 
     .story-trigger {
