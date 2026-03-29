@@ -350,6 +350,24 @@
         </footer>
     </div>
 
+    <audio id="bg-music" loop preload="none" aria-hidden="true">
+        <source src="futomaki.ogg" type="audio/ogg">
+    </audio>
+
+    <div id="music-consent" class="music-consent" role="dialog" aria-modal="true" aria-labelledby="music-consent-title" aria-describedby="music-consent-copy">
+        <div class="music-consent-card">
+            <p class="banner-label">Musik</p>
+            <h2 id="music-consent-title">Soll Hintergrundmusik abgespielt werden?</h2>
+            <p id="music-consent-copy" class="music-consent-copy">Die Auswahl gilt nur für diesen geöffneten Seitenaufruf. Es wird nichts gespeichert.</p>
+            <div class="music-consent-actions">
+                <button id="music-enable" class="music-consent-button primary" type="button">Ja, Musik abspielen</button>
+                <button id="music-disable" class="music-consent-button" type="button">Nein, ohne Musik</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="audio-toggle" class="audio-toggle" type="button" hidden aria-pressed="false">Musik: aus</button>
+
     <div id="modal-kaida" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-kaida-title" hidden>
         <div class="modal-content">
             <button class="close-modal" type="button" aria-label="Menü schliessen" data-close-modal>&times;</button>

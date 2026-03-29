@@ -2,6 +2,7 @@ const HEADER_HIDE_TABS = new Set(["angebote", "speisekarte", "getraenke", "team"
 
 let activeModal = null;
 let lastFocusedElement = null;
+let musicEnabled = false;
 
 function setActiveTab(tabName, options = {}) {
     const { updateHash = true, moveFocus = false } = options;
@@ -133,10 +134,46 @@ function handleDocumentKeydown(event) {
     }
 }
 
+function updateAudioToggleLabel(toggle) {
+    if (!toggle) {
+        return;
+    }
+
+    toggle.textContent = musicEnabled ? "Musik: an" : "Musik: aus";
+    toggle.setAttribute("aria-pressed", String(musicEnabled));
+}
+
+async function setMusicEnabled(audio, toggle, enabled) {
+    musicEnabled = enabled;
+    updateAudioToggleLabel(toggle);
+
+    if (!audio) {
+        return;
+    }
+
+    if (enabled) {
+        try {
+            await audio.play();
+        } catch (_error) {
+            musicEnabled = false;
+            updateAudioToggleLabel(toggle);
+        }
+        return;
+    }
+
+    audio.pause();
+    audio.currentTime = 0;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const tabButtons = Array.from(document.querySelectorAll(".tab-button"));
     const menuCards = Array.from(document.querySelectorAll(".menu-card"));
     const modalClosers = Array.from(document.querySelectorAll("[data-close-modal]"));
+    const audio = document.getElementById("bg-music");
+    const musicConsent = document.getElementById("music-consent");
+    const musicEnableButton = document.getElementById("music-enable");
+    const musicDisableButton = document.getElementById("music-disable");
+    const audioToggle = document.getElementById("audio-toggle");
     const hashTab = window.location.hash.replace("#", "");
     const defaultTab = tabButtons[0]?.dataset.tab;
     const initialTab = tabButtons.some((button) => button.dataset.tab === hashTab)
@@ -175,6 +212,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.addEventListener("keydown", handleDocumentKeydown);
+
+    updateAudioToggleLabel(audioToggle);
+
+    if (audio && audioToggle) {
+        audio.addEventListener("error", () => {
+            audioToggle.hidden = true;
+        });
+
+        audioToggle.addEventListener("click", async () => {
+            await setMusicEnabled(audio, audioToggle, !musicEnabled);
+        });
+    }
+
+    if (musicConsent && musicEnableButton && musicDisableButton) {
+        document.body.classList.add("modal-open");
+
+        musicEnableButton.addEventListener("click", async () => {
+            musicConsent.hidden = true;
+            document.body.classList.remove("modal-open");
+            if (audioToggle) {
+                audioToggle.hidden = false;
+            }
+            await setMusicEnabled(audio, audioToggle, true);
+        });
+
+        musicDisableButton.addEventListener("click", async () => {
+            musicConsent.hidden = true;
+            document.body.classList.remove("modal-open");
+            if (audioToggle) {
+                audioToggle.hidden = false;
+            }
+            await setMusicEnabled(audio, audioToggle, false);
+        });
+    }
 
     if (initialTab) {
         setActiveTab(initialTab, { updateHash: Boolean(hashTab) });
