@@ -102,7 +102,11 @@ body {
     font-family: "Manrope", sans-serif;
     line-height: 1.65;
     color: var(--text-main);
-    background: #000;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.82)),
+        url("kugane.png") center center / cover no-repeat fixed,
+        #000;
+    animation: backgroundDrift 32s ease-in-out infinite alternate;
 }
 
 body::before {
@@ -115,6 +119,33 @@ body::before {
         repeating-linear-gradient(90deg, transparent 0 112px, rgba(255, 255, 255, 0.015) 112px 113px);
     mix-blend-mode: screen;
     opacity: 0.32;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 22% 18%, rgba(255, 206, 138, 0.12), transparent 20%),
+        radial-gradient(circle at 78% 14%, rgba(255, 170, 112, 0.1), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(124, 77, 46, 0.18), transparent 34%);
+    opacity: 0.8;
+    animation: ambientLanterns 14s ease-in-out infinite alternate;
+}
+
+.page-shell::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle, rgba(255, 213, 145, 0.22) 0 2px, transparent 3px) 10% 18% / 180px 140px,
+        radial-gradient(circle, rgba(255, 178, 119, 0.16) 0 1.5px, transparent 3px) 72% 24% / 220px 180px,
+        radial-gradient(circle, rgba(255, 220, 173, 0.14) 0 2px, transparent 3px) 42% 78% / 260px 220px;
+    opacity: 0.24;
+    animation: citySparkle 18s linear infinite;
 }
 
 body.modal-open {
@@ -171,6 +202,12 @@ summary,
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+}
+
+.page-shell > * {
+    position: relative;
+    z-index: 1;
 }
 
 #header-container {
@@ -199,6 +236,7 @@ summary,
     box-shadow: var(--shadow-strong);
     backdrop-filter: blur(14px);
     isolation: isolate;
+    animation: heroGlow 8s ease-in-out infinite;
 }
 
 .hero::before,
@@ -212,6 +250,10 @@ summary,
 
 .hero::before {
     border: 1px solid rgba(255, 245, 231, 0.08);
+    background:
+        radial-gradient(circle at 18% 24%, rgba(255, 214, 153, 0.08), transparent 14%),
+        radial-gradient(circle at 82% 18%, rgba(255, 179, 120, 0.06), transparent 16%);
+    animation: heroParallax 12s ease-in-out infinite alternate;
 }
 
 .hero::after {
@@ -290,6 +332,10 @@ h1 {
     background: rgba(255, 243, 224, 0.05);
     color: var(--text-soft);
     font-size: 0.84rem;
+}
+
+.hero-ribbons span:nth-child(2) {
+    animation: ribbonSheen 6s ease-in-out infinite;
 }
 
 .hero-mark,
@@ -383,6 +429,82 @@ main {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes backgroundDrift {
+    from {
+        background-position: center, 50% 0%, center;
+    }
+
+    to {
+        background-position: center, 50% 8%, center;
+    }
+}
+
+@keyframes ambientLanterns {
+    from {
+        opacity: 0.55;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes heroGlow {
+    0%,
+    100% {
+        box-shadow: var(--shadow-strong);
+        border-color: var(--line-soft);
+    }
+
+    50% {
+        box-shadow: 0 28px 78px rgba(0, 0, 0, 0.5);
+        border-color: rgba(240, 223, 199, 0.24);
+    }
+}
+
+@keyframes ribbonSheen {
+    0%,
+    100% {
+        background: rgba(255, 243, 224, 0.05);
+        border-color: var(--line-soft);
+    }
+
+    50% {
+        background: rgba(255, 243, 224, 0.1);
+        border-color: rgba(240, 223, 199, 0.32);
+    }
+}
+
+@keyframes heroParallax {
+    from {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.78;
+    }
+
+    to {
+        transform: translate3d(0, -6px, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes citySparkle {
+    from {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.18;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    to {
+        transform: translate3d(0, -12px, 0);
+        opacity: 0.2;
     }
 }
 
@@ -884,7 +1006,7 @@ footer {
 
 @media (max-width: 768px) {
     body {
-        background-attachment: scroll;
+        background-attachment: scroll, scroll, scroll;
     }
 
     .hero {
