@@ -273,21 +273,6 @@ summary,
     opacity: 0.75;
 }
 
-.hero-mark {
-    width: 44px;
-    height: 44px;
-    margin: 0 auto 10px;
-    display: grid;
-    place-items: center;
-    border-radius: 18px;
-    border: 1px solid var(--line-strong);
-    color: var(--accent-strong);
-    background: rgba(255, 255, 255, 0.04);
-    font-size: 1.3rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-}
-
 .eyebrow,
 .banner-label,
 .card-kicker {
@@ -338,7 +323,6 @@ h1 {
     animation: ribbonSheen 6s ease-in-out infinite;
 }
 
-.hero-mark,
 .overview-chip,
 .menu-intro-card,
 .section-banner,
@@ -346,7 +330,6 @@ h1 {
     position: relative;
 }
 
-.hero-mark::after,
 .section-banner::after,
 .overview-chip::after,
 .menu-intro-card::after,
@@ -1098,12 +1081,6 @@ footer {
         left: 14px;
         right: 14px;
         bottom: 12px;
-    }
-
-    .hero-mark {
-        width: 42px;
-        height: 42px;
-        border-radius: 14px;
     }
 
     .hero-copy {
