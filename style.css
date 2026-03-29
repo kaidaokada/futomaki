@@ -274,14 +274,6 @@ summary,
 }
 
 .eyebrow,
-.banner-label,
-.card-kicker {
-    margin: 0;
-    color: var(--text-soft);
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-}
-
 .eyebrow {
     font-size: 0.72rem;
 }
@@ -324,7 +316,6 @@ h1 {
 }
 
 .overview-chip,
-.menu-intro-card,
 .section-banner,
 .modal-content {
     position: relative;
@@ -332,7 +323,6 @@ h1 {
 
 .section-banner::after,
 .overview-chip::after,
-.menu-intro-card::after,
 .modal-content::after {
     content: "";
     position: absolute;
@@ -505,11 +495,6 @@ main {
     margin-bottom: 16px;
 }
 
-.banner-label,
-.card-kicker {
-    font-size: 0.76rem;
-}
-
 h2 {
     margin: 4px 0 6px;
     color: var(--accent-strong);
@@ -529,7 +514,6 @@ h2 {
 .rules-container,
 .offers-grid,
 .team-grid,
-.menu-intro-grid,
 .menu-highlight-grid,
 .menu-grid {
     display: grid;
@@ -543,8 +527,7 @@ h2 {
     margin: 0 0 28px;
 }
 
-.overview-chip,
-.menu-intro-card {
+.overview-chip {
     padding: 18px 20px;
     border: 1px solid var(--line-soft);
     border-radius: var(--radius-md);
@@ -606,32 +589,6 @@ h2 {
 
 .detail-list li + li {
     margin-top: 8px;
-}
-
-.ledger {
-    margin: 10px 0 0;
-}
-
-.ledger div {
-    display: grid;
-    gap: 2px;
-    padding: 12px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.ledger div:first-child {
-    border-top: 0;
-    padding-top: 0;
-}
-
-.ledger dt {
-    color: var(--text-soft);
-}
-
-.ledger dd {
-    margin: 0;
-    color: var(--text-main);
-    font-weight: 700;
 }
 
 .story-accordion + .story-accordion {
@@ -722,22 +679,6 @@ h2 {
 
 .menu-story {
     margin-bottom: 14px;
-}
-
-.menu-intro-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    margin-bottom: 14px;
-}
-
-.menu-intro-card h3 {
-    margin: 6px 0 8px;
-    color: var(--accent-strong);
-    font-size: 1.5rem;
-}
-
-.menu-intro-card p:last-child {
-    margin-bottom: 0;
-    color: var(--text-soft);
 }
 
 .section-jump-links {
@@ -1003,25 +944,6 @@ footer {
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.36);
 }
 
-.modal-meta {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin: 2px 0 12px;
-}
-
-.modal-meta span {
-    padding: 6px 10px;
-    border: 1px solid var(--line-soft);
-    border-radius: 999px;
-    background: rgba(255, 243, 224, 0.05);
-    color: var(--text-soft);
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
 .modal-note {
     margin: 14px auto 0;
     max-width: 28rem;
@@ -1107,8 +1029,7 @@ footer {
     .rules-box,
     .offer-item,
     .team-member-card,
-    .overview-chip,
-    .menu-intro-card {
+    .overview-chip {
         padding: 14px;
     }
 
