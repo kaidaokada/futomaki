@@ -921,6 +921,10 @@ footer {
     backdrop-filter: blur(8px);
 }
 
+.music-consent[hidden] {
+    display: none;
+}
+
 .music-consent-card {
     width: min(100%, 520px);
     padding: 24px 22px;
