@@ -33,10 +33,10 @@
             <nav class="sidebar-nav" aria-label="Hauptnavigation" role="tablist">
                 <button id="tab-willkommen" class="nav-tab active" type="button" role="tab" aria-selected="true" aria-controls="panel-willkommen" tabindex="0" data-tab="willkommen"><span class="nav-kicker">Auftakt</span><span class="nav-title">Das Haus</span></button>
                 <button id="tab-angebote" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-angebote" tabindex="-1" data-tab="angebote"><span class="nav-kicker">Atmosphäre</span><span class="nav-title">Angebote</span></button>
-                <button id="tab-speisen" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-speisen" tabindex="-1" data-tab="speisen"><span class="nav-kicker">Küche</span><span class="nav-title">Speisekarte</span></button>
-                <button id="tab-getraenke" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-getraenke" tabindex="-1" data-tab="getraenke"><span class="nav-kicker">Bar</span><span class="nav-title">Getränke</span></button>
+                <button id="tab-speisen" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-speisen" tabindex="-1" data-tab="speisen"><span class="nav-kicker">Kaida</span><span class="nav-title">Sushi</span></button>
+                <button id="tab-getraenke" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-getraenke" tabindex="-1" data-tab="getraenke"><span class="nav-kicker">Yokomo</span><span class="nav-title">Küche</span></button>
+                <button id="tab-team" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-team" tabindex="-1" data-tab="team"><span class="nav-kicker">Kalea</span><span class="nav-title">Getränke</span></button>
                 <button id="tab-hinweise" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-hinweise" tabindex="-1" data-tab="hinweise"><span class="nav-kicker">Rahmen</span><span class="nav-title">Hinweise</span></button>
-                <button id="tab-team" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-team" tabindex="-1" data-tab="team"><span class="nav-kicker">Menschen</span><span class="nav-title">Team</span></button>
             </nav>
 
             <div class="sidebar-foot">
@@ -115,113 +115,108 @@
 
             <section id="panel-speisen" class="content-panel" role="tabpanel" aria-labelledby="tab-speisen" data-panel hidden>
                 <div class="panel-header">
-                    <p class="section-label">Speisekarte</p>
-                    <h2>Eine Karte für einen guten Abend.</h2>
-                    <p class="lead">Wer zum ersten Mal bei uns einkehrt, findet in den Hausmenüs einen guten Einstieg. Sie geben einen einfachen Überblick über das, was das Haus ausmacht.</p>
+                    <p class="section-label">Sushi</p>
+                    <h2>Kaidas Seite der Karte.</h2>
+                    <p class="lead">Hier steht das Sushi im Vordergrund: klar, direkt und ohne viel Drumherum. Wer das Futomaki über seine Rollen und Schnitte kennenlernen möchte, beginnt hier.</p>
                 </div>
 
-                <section class="surface-card">
-                    <div class="section-split">
-                        <div><p class="section-label">Hausmenüs</p><h3>Menüs für 150 Gil</h3></div>
-                        <p class="section-note">Öffnen für Details</p>
+                <div class="menu-page-layout">
+                    <div class="menu-page-main">
+                        <section class="surface-card">
+                            <p class="section-label">Sushi-Klassiker</p>
+                            <div class="menu-list">
+                                <article class="menu-item"><div><h3>Nigiri</h3><p>Klar gesetzter Fisch auf warmem Reis.</p></div><span>45 Gil</span></article>
+                                <article class="menu-item"><div><h3>Maki</h3><p>Schmale Rollen mit sauberer Balance.</p></div><span>49 Gil</span></article>
+                                <article class="menu-item"><div><h3>Sashimi</h3><p>Pur geschnittener Fisch ohne Umweg.</p></div><span>52 Gil</span></article>
+                                <article class="menu-item"><div><h3>Temaki</h3><p>Frisch gerollte Kegel mit saftigem Kern.</p></div><span>50 Gil</span></article>
+                                <article class="menu-item"><div><h3>Uramaki</h3><p>Weiche Hülle, kräftiger Kern.</p></div><span>54 Gil</span></article>
+                                <article class="menu-item"><div><h3>Chirashi</h3><p>Reisschüssel für den grösseren Appetit.</p></div><span>48 Gil</span></article>
+                                <article class="menu-item"><div><h3>Inari</h3><p>Milde Süsse und weiche Tiefe.</p></div><span>52 Gil</span></article>
+                                <article class="menu-item"><div><h3>Gunkan</h3><p>Kleine Schiffe für Rogen und weiche Zutaten.</p></div><span>58 Gil</span></article>
+                                <article class="menu-item"><div><h3>Futomaki</h3><p>Dicke Rollen des Hauses, reich und ordentlich.</p></div><span>50 Gil</span></article>
+                                <article class="menu-item"><div><h3>Aburi</h3><p>Über Flamme geführter Fisch mit warmer Kante.</p></div><span>56 Gil</span></article>
+                            </div>
+                        </section>
                     </div>
-                    <div class="menu-button-grid">
-                        <button class="menu-button" type="button" data-modal="modal-kaida" aria-haspopup="dialog" aria-controls="modal-kaida"><span>Die deftige Kaida</span><small>kräftig und erdend</small></button>
-                        <button class="menu-button" type="button" data-modal="modal-kalea" aria-haspopup="dialog" aria-controls="modal-kalea"><span>Die zarte Kalea</span><small>klar und fein</small></button>
-                        <button class="menu-button" type="button" data-modal="modal-momo" aria-haspopup="dialog" aria-controls="modal-momo"><span>Die süsse Momo</span><small>leicht und verspielt</small></button>
-                        <button class="menu-button" type="button" data-modal="modal-moench" aria-haspopup="dialog" aria-controls="modal-moench"><span>Der Bettelmönch</span><small>einfach und still</small></button>
-                        <button class="menu-button" type="button" data-modal="modal-samurai" aria-haspopup="dialog" aria-controls="modal-samurai"><span>Der Samurai</span><small>tragend und würdevoll</small></button>
-                        <button class="menu-button" type="button" data-modal="modal-ronin" aria-haspopup="dialog" aria-controls="modal-ronin"><span>Der Ronin</span><small>wild und salzig</small></button>
-                        <button class="menu-button" type="button" data-modal="modal-wald" aria-haspopup="dialog" aria-controls="modal-wald"><span>Der Ruf des Waldes</span><small>erdig und ruhig</small></button>
-                        <button class="menu-button" type="button" data-modal="modal-klinge" aria-haspopup="dialog" aria-controls="modal-klinge"><span>Die brennende Klinge</span><small>scharf und wach</small></button>
-                    </div>
-                </section>
-
-                <div class="menu-columns">
-                    <section class="surface-card">
-                        <p class="section-label">Sushi-Klassiker</p>
-                        <div class="menu-list">
-                            <article class="menu-item"><div><h3>Nigiri</h3><p>Klar gesetzter Fisch auf warmem Reis.</p></div><span>45 Gil</span></article>
-                            <article class="menu-item"><div><h3>Maki</h3><p>Schmale Rollen mit sauberer Balance.</p></div><span>49 Gil</span></article>
-                            <article class="menu-item"><div><h3>Sashimi</h3><p>Pur geschnittener Fisch ohne Umweg.</p></div><span>52 Gil</span></article>
-                            <article class="menu-item"><div><h3>Temaki</h3><p>Frisch gerollte Kegel mit saftigem Kern.</p></div><span>50 Gil</span></article>
-                            <article class="menu-item"><div><h3>Uramaki</h3><p>Weiche Hülle, kräftiger Kern.</p></div><span>54 Gil</span></article>
-                            <article class="menu-item"><div><h3>Chirashi</h3><p>Reisschüssel für den grösseren Appetit.</p></div><span>48 Gil</span></article>
-                            <article class="menu-item"><div><h3>Inari</h3><p>Milde Süsse und weiche Tiefe.</p></div><span>52 Gil</span></article>
-                            <article class="menu-item"><div><h3>Gunkan</h3><p>Kleine Schiffe für Rogen und weiche Zutaten.</p></div><span>58 Gil</span></article>
-                            <article class="menu-item"><div><h3>Futomaki</h3><p>Dicke Rollen des Hauses, reich und ordentlich.</p></div><span>50 Gil</span></article>
-                            <article class="menu-item"><div><h3>Aburi</h3><p>Über Flamme geführter Fisch mit warmer Kante.</p></div><span>56 Gil</span></article>
-                        </div>
-                    </section>
-
-                    <section class="surface-card">
-                        <p class="section-label">Warme Küche</p>
-                        <div class="menu-list">
-                            <article class="menu-item"><div><h3>Ramen</h3><p>Eine Schale, die den Abend zusammenhält.</p></div><span>35 Gil</span></article>
-                            <article class="menu-item"><div><h3>Tempura</h3><p>Leicht, knusprig und mit gutem Biss.</p></div><span>40 Gil</span></article>
-                            <article class="menu-item"><div><h3>Okonomiyaki</h3><p>Weich, herzhaft und kräftig gewürzt.</p></div><span>38 Gil</span></article>
-                            <article class="menu-item"><div><h3>Tonkatsu</h3><p>Saftig geschnitten und mit Reis serviert.</p></div><span>45 Gil</span></article>
-                            <article class="menu-item"><div><h3>Yakitori</h3><p>Rauchige Spiesse mit Tare-Glanz.</p></div><span>35 Gil</span></article>
-                            <article class="menu-item"><div><h3>Karaage</h3><p>Knusprig, würzig und saftig im Kern.</p></div><span>40 Gil</span></article>
-                        </div>
-                    </section>
-
-                    <section class="surface-card">
-                        <p class="section-label">Süsses von Kitsune Momo</p>
-                        <div class="menu-list">
-                            <article class="menu-item"><div><h3>Mochi</h3><p>Süsser Widerstand mit weichem Nachklang.</p></div><span>22 Gil</span></article>
-                            <article class="menu-item"><div><h3>Daifuku</h3><p>Sanft, rund und freundlich.</p></div><span>21 Gil</span></article>
-                            <article class="menu-item"><div><h3>Dorayaki</h3><p>Warme Küchlein mit goldener Farbe.</p></div><span>20 Gil</span></article>
-                            <article class="menu-item"><div><h3>Taiyaki</h3><p>Aussen leicht knusprig, innen weich.</p></div><span>24 Gil</span></article>
-                            <article class="menu-item"><div><h3>Anmitsu</h3><p>Ein leichter Abschied aus Gelee und Eis.</p></div><span>22 Gil</span></article>
-                            <article class="menu-item"><div><h3>Yokan</h3><p>Ruhige Süsse mit sauberer Kante.</p></div><span>23 Gil</span></article>
-                        </div>
-                    </section>
+                    <aside class="menu-page-aside">
+                        <section class="surface-card profile-feature profile-feature-vertical">
+                            <div class="profile-feature-image">
+                                <img src="kaida.png" alt="Porträt von Kaida" loading="lazy" decoding="async">
+                            </div>
+                            <div class="profile-feature-copy">
+                                <p class="section-label">Hausleitung &amp; Sushi</p>
+                                <h3>Kaida</h3>
+                                <p>Kaida führt die Sushi-Seite des Hauses mit ruhiger Hand und einem klaren Blick für Qualität. Bei ihr geht es weniger um große Show als darum, dass Reis, Fisch und Schnitt einfach stimmen.</p>
+                            </div>
+                        </section>
+                    </aside>
                 </div>
             </section>
 
             <section id="panel-getraenke" class="content-panel" role="tabpanel" aria-labelledby="tab-getraenke" data-panel hidden>
                 <div class="panel-header">
-                    <p class="section-label">Getränkekarte</p>
-                    <h2>Von Reiswein bis Hausdrink.</h2>
+                    <p class="section-label">Küche</p>
+                    <h2>Yokomos Seite der Karte.</h2>
+                    <p class="lead">Hier findet sich alles, was warm, herzhaft oder süss auf den Tisch kommt. Das ist der Teil der Karte für Brühen, Pfanne, Grill und einen guten Abschluss.</p>
                 </div>
 
-                <div class="menu-columns drinks-columns">
-                    <section class="surface-card">
-                        <p class="section-label">Klassische Getränke</p>
-                        <div class="menu-list">
-                            <article class="menu-item"><div><h3>Nihonshu Sake</h3><p>Klarer Reiswein für ruhige Schlucke.</p></div><span>12 Gil</span></article>
-                            <article class="menu-item"><div><h3>Amazake</h3><p>Mild, süss und weich.</p></div><span>10 Gil</span></article>
-                            <article class="menu-item"><div><h3>Doburoku</h3><p>Trüb, rustikal und ehrlich.</p></div><span>13 Gil</span></article>
-                            <article class="menu-item"><div><h3>Umeshu</h3><p>Pflaumenlikör mit dunkler Süsse.</p></div><span>14 Gil</span></article>
-                            <article class="menu-item"><div><h3>Shochu</h3><p>Streng, klar und direkt.</p></div><span>16 Gil</span></article>
-                            <article class="menu-item"><div><h3>Cha</h3><p>Mit Ruhe servierter Tee aus dem Haus.</p></div><span>13 Gil</span></article>
-                        </div>
-                    </section>
+                <div class="menu-page-layout">
+                    <div class="menu-page-main menu-page-main-wide">
+                        <section class="surface-card">
+                            <div class="section-split">
+                                <div><p class="section-label">Hausmenüs</p><h3>Menüs für 150 Gil</h3></div>
+                                <p class="section-note">Öffnen für Details</p>
+                            </div>
+                            <div class="menu-button-grid">
+                                <button class="menu-button" type="button" data-modal="modal-kaida" aria-haspopup="dialog" aria-controls="modal-kaida"><span>Die deftige Kaida</span><small>kräftig und erdend</small></button>
+                                <button class="menu-button" type="button" data-modal="modal-kalea" aria-haspopup="dialog" aria-controls="modal-kalea"><span>Die zarte Kalea</span><small>klar und fein</small></button>
+                                <button class="menu-button" type="button" data-modal="modal-momo" aria-haspopup="dialog" aria-controls="modal-momo"><span>Die süsse Momo</span><small>leicht und verspielt</small></button>
+                                <button class="menu-button" type="button" data-modal="modal-moench" aria-haspopup="dialog" aria-controls="modal-moench"><span>Der Bettelmönch</span><small>einfach und still</small></button>
+                                <button class="menu-button" type="button" data-modal="modal-samurai" aria-haspopup="dialog" aria-controls="modal-samurai"><span>Der Samurai</span><small>tragend und würdevoll</small></button>
+                                <button class="menu-button" type="button" data-modal="modal-ronin" aria-haspopup="dialog" aria-controls="modal-ronin"><span>Der Ronin</span><small>wild und salzig</small></button>
+                                <button class="menu-button" type="button" data-modal="modal-wald" aria-haspopup="dialog" aria-controls="modal-wald"><span>Der Ruf des Waldes</span><small>erdig und ruhig</small></button>
+                                <button class="menu-button" type="button" data-modal="modal-klinge" aria-haspopup="dialog" aria-controls="modal-klinge"><span>Die brennende Klinge</span><small>scharf und wach</small></button>
+                            </div>
+                        </section>
 
-                    <section class="surface-card">
-                        <p class="section-label">Cocktails des Hauses</p>
-                        <div class="menu-list">
-                            <article class="menu-item"><div><h3>Sakura Martini</h3><p>Blütig, kühl und fein.</p></div><span>18 Gil</span></article>
-                            <article class="menu-item"><div><h3>Ume Sour</h3><p>Frucht und Säure in Balance.</p></div><span>17 Gil</span></article>
-                            <article class="menu-item"><div><h3>Matcha Highball</h3><p>Herb, frisch und klar.</p></div><span>13 Gil</span></article>
-                            <article class="menu-item"><div><h3>Yuzu Collins</h3><p>Zitrisch und mit langem Nachhall.</p></div><span>14 Gil</span></article>
-                            <article class="menu-item"><div><h3>Momo Bellini</h3><p>Weich und freundlich im Einstieg.</p></div><span>16 Gil</span></article>
-                            <article class="menu-item"><div><h3>Hojicha Old Fashioned</h3><p>Dunkel und gemacht für späte Stunden.</p></div><span>13 Gil</span></article>
-                        </div>
-                    </section>
+                        <div class="menu-columns menu-columns-two">
+                            <section class="surface-card">
+                                <p class="section-label">Warme Küche</p>
+                                <div class="menu-list">
+                                    <article class="menu-item"><div><h3>Ramen</h3><p>Eine Schale, die den Abend zusammenhält.</p></div><span>35 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Tempura</h3><p>Leicht, knusprig und mit gutem Biss.</p></div><span>40 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Okonomiyaki</h3><p>Weich, herzhaft und kräftig gewürzt.</p></div><span>38 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Tonkatsu</h3><p>Saftig geschnitten und mit Reis serviert.</p></div><span>45 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Yakitori</h3><p>Rauchige Spiesse mit Tare-Glanz.</p></div><span>35 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Karaage</h3><p>Knusprig, würzig und saftig im Kern.</p></div><span>40 Gil</span></article>
+                                </div>
+                            </section>
 
-                    <section class="surface-card">
-                        <p class="section-label">Hauslimonaden</p>
-                        <div class="menu-list">
-                            <article class="menu-item"><div><h3>Lychee-Limonade</h3><p>Klare Frucht und frische Minze.</p></div><span>12 Gil</span></article>
-                            <article class="menu-item"><div><h3>Ramune</h3><p>Klassisch, kühl und vertraut.</p></div><span>10 Gil</span></article>
-                            <article class="menu-item"><div><h3>Mango-Minz-Limo</h3><p>Sonnige Süsse mit Kräuterfrische.</p></div><span>13 Gil</span></article>
-                            <article class="menu-item"><div><h3>Kiwi-Apfel-Limo</h3><p>Lebendig und etwas schärfer in der Frucht.</p></div><span>14 Gil</span></article>
-                            <article class="menu-item"><div><h3>Momos Melone</h3><p>Honigmelone auf Eis.</p></div><span>12 Gil</span></article>
-                            <article class="menu-item"><div><h3>Kaidas Sahne Klecks</h3><p>Weiche Limo mit einer Kugel Eiscreme.</p></div><span>10 Gil</span></article>
+                            <section class="surface-card">
+                                <p class="section-label">Süsses von Kitsune Momo</p>
+                                <div class="menu-list">
+                                    <article class="menu-item"><div><h3>Mochi</h3><p>Süsser Widerstand mit weichem Nachklang.</p></div><span>22 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Daifuku</h3><p>Sanft, rund und freundlich.</p></div><span>21 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Dorayaki</h3><p>Warme Küchlein mit goldener Farbe.</p></div><span>20 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Taiyaki</h3><p>Aussen leicht knusprig, innen weich.</p></div><span>24 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Anmitsu</h3><p>Ein leichter Abschied aus Gelee und Eis.</p></div><span>22 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Yokan</h3><p>Ruhige Süsse mit sauberer Kante.</p></div><span>23 Gil</span></article>
+                                </div>
+                            </section>
                         </div>
-                    </section>
+                    </div>
+                    <aside class="menu-page-aside">
+                        <section class="surface-card profile-feature profile-feature-vertical">
+                            <div class="profile-feature-image">
+                                <img src="yokomo.png" alt="Porträt von Yokomo" loading="lazy" decoding="async">
+                            </div>
+                            <div class="profile-feature-copy">
+                                <p class="section-label">Warme Küche</p>
+                                <h3>Yokomo</h3>
+                                <p>Yokomo verantwortet die warme Küche und gibt der Karte ihre kräftigere Seite. Ihre Gerichte bringen Wärme, Ruhe und genau die richtige Erdung zum Sushi.</p>
+                            </div>
+                        </section>
+                    </aside>
                 </div>
             </section>
 
@@ -260,14 +255,63 @@
 
             <section id="panel-team" class="content-panel" role="tabpanel" aria-labelledby="tab-team" data-panel hidden>
                 <div class="panel-header">
-                    <p class="section-label">Es haben die Ehre</p>
-                    <h2>Drei Personen, ein Haus.</h2>
+                    <p class="section-label">Getränke</p>
+                    <h2>Kaleas Seite der Karte.</h2>
+                    <p class="lead">Von Reiswein bis Hausdrink: Hier geht es um alles, was den Abend begleitet. Die Karte bleibt ruhig, aber nicht langweilig.</p>
                 </div>
 
-                <div class="team-grid">
-                    <article class="team-card"><div class="team-image"><img src="kaida.jpg" alt="Porträt von Kaida" loading="lazy" decoding="async"></div><div class="team-copy"><p class="section-label">Hausleitung &amp; Sushi</p><h3>Kaida</h3><p>Kaida hält die Linie der Küche zusammen und sorgt dafür, dass das Futomaki klar und verlässlich bleibt.</p></div></article>
-                    <article class="team-card"><div class="team-image"><img src="kalea.jpg" alt="Porträt von Kalea" loading="lazy" decoding="async"></div><div class="team-copy"><p class="section-label">Getränke &amp; Gastraum</p><h3>Kalea</h3><p>Kalea kümmert sich um Getränke, Gastraum und den Ablauf im Haus. Sie hat ein gutes Gespür dafür, was Gäste brauchen.</p></div></article>
-                    <article class="team-card"><div class="team-image"><img src="yokomo.jpg" alt="Porträt von Yokomo" loading="lazy" decoding="async"></div><div class="team-copy"><p class="section-label">Warme Küche</p><h3>Yokomo</h3><p>Yokomo verantwortet die warme Küche. Ihre Gerichte geben der Karte Herzhaftigkeit und Balance.</p></div></article>
+                <div class="menu-page-layout">
+                    <div class="menu-page-main menu-page-main-wide">
+                        <div class="menu-columns menu-columns-two">
+                            <section class="surface-card">
+                                <p class="section-label">Klassische Getränke</p>
+                                <div class="menu-list">
+                                    <article class="menu-item"><div><h3>Nihonshu Sake</h3><p>Klarer Reiswein für ruhige Schlucke.</p></div><span>12 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Amazake</h3><p>Mild, süss und weich.</p></div><span>10 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Doburoku</h3><p>Trüb, rustikal und ehrlich.</p></div><span>13 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Umeshu</h3><p>Pflaumenlikör mit dunkler Süsse.</p></div><span>14 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Shochu</h3><p>Streng, klar und direkt.</p></div><span>16 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Cha</h3><p>Mit Ruhe servierter Tee aus dem Haus.</p></div><span>13 Gil</span></article>
+                                </div>
+                            </section>
+
+                            <section class="surface-card">
+                                <p class="section-label">Cocktails des Hauses</p>
+                                <div class="menu-list">
+                                    <article class="menu-item"><div><h3>Sakura Martini</h3><p>Blütig, kühl und fein.</p></div><span>18 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Ume Sour</h3><p>Frucht und Säure in Balance.</p></div><span>17 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Matcha Highball</h3><p>Herb, frisch und klar.</p></div><span>13 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Yuzu Collins</h3><p>Zitrisch und mit langem Nachhall.</p></div><span>14 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Momo Bellini</h3><p>Weich und freundlich im Einstieg.</p></div><span>16 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Hojicha Old Fashioned</h3><p>Dunkel und gemacht für späte Stunden.</p></div><span>13 Gil</span></article>
+                                </div>
+                            </section>
+
+                            <section class="surface-card menu-columns-span-two">
+                                <p class="section-label">Hauslimonaden</p>
+                                <div class="menu-list">
+                                    <article class="menu-item"><div><h3>Lychee-Limonade</h3><p>Klare Frucht und frische Minze.</p></div><span>12 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Ramune</h3><p>Klassisch, kühl und vertraut.</p></div><span>10 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Mango-Minz-Limo</h3><p>Sonnige Süsse mit Kräuterfrische.</p></div><span>13 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Kiwi-Apfel-Limo</h3><p>Lebendig und etwas schärfer in der Frucht.</p></div><span>14 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Momos Melone</h3><p>Honigmelone auf Eis.</p></div><span>12 Gil</span></article>
+                                    <article class="menu-item"><div><h3>Kaidas Sahne Klecks</h3><p>Weiche Limo mit einer Kugel Eiscreme.</p></div><span>10 Gil</span></article>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <aside class="menu-page-aside">
+                        <section class="surface-card profile-feature profile-feature-vertical">
+                            <div class="profile-feature-image">
+                                <img src="kalea.jpg" alt="Porträt von Kalea" loading="lazy" decoding="async">
+                            </div>
+                            <div class="profile-feature-copy">
+                                <p class="section-label">Getränke &amp; Gastraum</p>
+                                <h3>Kalea</h3>
+                                <p>Kalea kümmert sich um Getränke, Stimmung und den Ablauf im Haus. Sie mag Karten, die klar bleiben und trotzdem genug Auswahl für einen langen Abend bieten.</p>
+                            </div>
+                        </section>
+                    </aside>
                 </div>
             </section>
         </main>

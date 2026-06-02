@@ -69,8 +69,8 @@
     --panel-strong: rgba(17, 23, 30, 0.92);
     --sidebar: #05070a;
     --sidebar-strong: #020304;
-    --ink: #f4ead2;
-    --ink-soft: #c5b99c;
+    --ink: #f4ead0;
+    --ink-soft: #c8baa0;
     --sage: #92a398;
     --sage-soft: rgba(146, 163, 152, 0.14);
     --gold: #d8bb7a;
@@ -136,7 +136,7 @@ a {
     padding: 10px 14px;
     border-radius: 999px;
     color: #fff;
-    background: var(--teal);
+    background: var(--vermilion);
     text-decoration: none;
     font-weight: 700;
 }
@@ -227,7 +227,7 @@ a {
     padding: 16px 6px 16px 18px;
     border: 0;
     border-left: 1px solid transparent;
-    color: rgba(245, 236, 223, 0.74);
+    color: rgba(245, 236, 223, 0.76);
     background: transparent;
     text-align: left;
     cursor: pointer;
@@ -294,6 +294,7 @@ a {
     color: var(--ink-soft);
     font-size: 1.02rem;
     max-width: 68ch;
+    color: var(--ink-soft);
 }
 
 .signal-row {
@@ -344,6 +345,80 @@ a {
 
 .team-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.menu-page-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) 360px;
+    gap: 20px;
+    align-items: start;
+}
+
+.menu-page-main,
+.menu-page-aside {
+    display: grid;
+    gap: 20px;
+}
+
+.menu-page-aside {
+    position: sticky;
+    top: 20px;
+}
+
+.menu-page-main-wide {
+    gap: 18px;
+}
+
+.menu-columns-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.menu-columns-span-two {
+    grid-column: span 2;
+}
+
+.profile-feature {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.profile-feature-vertical {
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.profile-feature-image {
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(216, 187, 122, 0.18);
+    aspect-ratio: 4 / 5;
+}
+
+.profile-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-feature-copy {
+    display: grid;
+    gap: 12px;
+}
+
+.profile-feature-copy h3 {
+    font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.profile-feature-copy p {
+    margin: 0;
+    color: var(--ink-soft);
+    max-width: 52ch;
+}
+
+.profile-feature-vertical .profile-feature-copy p {
+    max-width: none;
 }
 
 .surface-card,
@@ -725,11 +800,25 @@ a {
     }
 
     .hero-card,
+    .menu-page-layout,
     .two-column-stage,
     .menu-columns,
     .team-grid,
+    .profile-feature,
     .drinks-columns {
         grid-template-columns: 1fr;
+    }
+
+    .menu-page-aside {
+        position: static;
+    }
+
+    .menu-columns-two {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-columns-span-two {
+        grid-column: auto;
     }
 
     .offer-grid {
