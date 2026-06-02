@@ -1,45 +1,6 @@
-const HEADER_HIDE_TABS = new Set(["angebote", "speisekarte", "getraenke", "team"]);
-
-let activeModal = null;
+let activeDialog = null;
 let lastFocusedElement = null;
 let musicEnabled = false;
-
-function setActiveTab(tabName, options = {}) {
-    const { updateHash = true, moveFocus = false } = options;
-    const header = document.getElementById("header-container");
-    const contentArea = document.getElementById("content-area");
-    const buttons = Array.from(document.querySelectorAll(".tab-button"));
-    const panels = Array.from(document.querySelectorAll(".tab-content"));
-    const nextButton = buttons.find((button) => button.dataset.tab === tabName);
-    const nextPanel = document.getElementById(tabName);
-
-    if (!nextButton || !nextPanel) {
-        return;
-    }
-
-    header.classList.toggle("hidden", HEADER_HIDE_TABS.has(tabName));
-
-    buttons.forEach((button) => {
-        const isActive = button === nextButton;
-        button.classList.toggle("active", isActive);
-        button.setAttribute("aria-selected", String(isActive));
-        button.setAttribute("tabindex", isActive ? "0" : "-1");
-    });
-
-    panels.forEach((panel) => {
-        panel.hidden = panel !== nextPanel;
-    });
-
-    contentArea.scrollTop = 0;
-
-    if (updateHash) {
-        history.replaceState(null, "", `#${tabName}`);
-    }
-
-    if (moveFocus) {
-        nextButton.focus();
-    }
-}
 
 function getFocusableElements(container) {
     return Array.from(
@@ -49,88 +10,72 @@ function getFocusableElements(container) {
     );
 }
 
-function openModal(modalId, trigger) {
-    const modal = document.getElementById(modalId);
+function updateBodyLockState() {
+    document.body.classList.toggle("modal-open", Boolean(activeDialog));
+}
 
-    if (!modal) {
+function setActiveTab(tabName, options = {}) {
+    const { updateHash = true, moveFocus = false } = options;
+    const tabs = Array.from(document.querySelectorAll(".nav-tab"));
+    const panels = Array.from(document.querySelectorAll("[data-panel]"));
+    const nextTab = tabs.find((tab) => tab.dataset.tab === tabName);
+    const nextPanel = document.getElementById(`panel-${tabName}`);
+
+    if (!nextTab || !nextPanel) {
+        return;
+    }
+
+    tabs.forEach((tab) => {
+        const isActive = tab === nextTab;
+        tab.classList.toggle("active", isActive);
+        tab.setAttribute("aria-selected", String(isActive));
+        tab.setAttribute("tabindex", isActive ? "0" : "-1");
+    });
+
+    panels.forEach((panel) => {
+        panel.hidden = panel !== nextPanel;
+        panel.setAttribute("aria-hidden", String(panel !== nextPanel));
+    });
+
+    document.getElementById("content-stage")?.scrollTo({ top: 0, behavior: "auto" });
+
+    if (updateHash) {
+        history.replaceState({ tab: tabName }, "", `#${tabName}`);
+    }
+
+    if (moveFocus) {
+        nextTab.focus();
+    }
+}
+
+function openDialog(dialog, trigger) {
+    if (!dialog) {
         return;
     }
 
     lastFocusedElement = trigger || document.activeElement;
-    modal.hidden = false;
-    document.body.classList.add("modal-open");
-    activeModal = modal;
+    dialog.hidden = false;
+    activeDialog = dialog;
+    updateBodyLockState();
 
-    const focusable = getFocusableElements(modal);
-    if (focusable.length > 0) {
-        focusable[0].focus();
-    }
+    const autofocusTarget = dialog.querySelector("[data-autofocus]");
+    const focusable = getFocusableElements(dialog);
+    (autofocusTarget || focusable[0])?.focus();
 }
 
-function closeModal(modal) {
-    if (!modal) {
+function closeDialog(dialog) {
+    if (!dialog) {
         return;
     }
 
-    modal.hidden = true;
-    document.body.classList.remove("modal-open");
-    activeModal = null;
+    dialog.hidden = true;
+    if (activeDialog === dialog) {
+        activeDialog = null;
+    }
+    updateBodyLockState();
 
     if (lastFocusedElement instanceof HTMLElement) {
         lastFocusedElement.focus();
-    }
-}
-
-function handleTabKeydown(event) {
-    const buttons = Array.from(document.querySelectorAll(".tab-button"));
-    const currentIndex = buttons.indexOf(event.currentTarget);
-    let targetIndex = currentIndex;
-
-    if (event.key === "ArrowRight") {
-        targetIndex = (currentIndex + 1) % buttons.length;
-    } else if (event.key === "ArrowLeft") {
-        targetIndex = (currentIndex - 1 + buttons.length) % buttons.length;
-    } else if (event.key === "Home") {
-        targetIndex = 0;
-    } else if (event.key === "End") {
-        targetIndex = buttons.length - 1;
-    } else {
-        return;
-    }
-
-    event.preventDefault();
-    setActiveTab(buttons[targetIndex].dataset.tab, { moveFocus: true });
-}
-
-function handleDocumentKeydown(event) {
-    if (!activeModal) {
-        return;
-    }
-
-    if (event.key === "Escape") {
-        closeModal(activeModal);
-        return;
-    }
-
-    if (event.key !== "Tab") {
-        return;
-    }
-
-    const focusable = getFocusableElements(activeModal);
-    if (focusable.length === 0) {
-        event.preventDefault();
-        return;
-    }
-
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-
-    if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
     }
 }
 
@@ -166,52 +111,93 @@ async function setMusicEnabled(audio, toggle, enabled) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const tabButtons = Array.from(document.querySelectorAll(".tab-button"));
-    const menuCards = Array.from(document.querySelectorAll(".menu-card"));
+    const tabs = Array.from(document.querySelectorAll(".nav-tab"));
+    const menuButtons = Array.from(document.querySelectorAll("[data-modal]"));
     const modalClosers = Array.from(document.querySelectorAll("[data-close-modal]"));
+    const modalOverlays = Array.from(document.querySelectorAll(".menu-modal"));
     const audio = document.getElementById("bg-music");
     const musicConsent = document.getElementById("music-consent");
     const musicEnableButton = document.getElementById("music-enable");
     const musicDisableButton = document.getElementById("music-disable");
     const audioToggle = document.getElementById("audio-toggle");
     const hashTab = window.location.hash.replace("#", "");
-    const defaultTab = tabButtons[0]?.dataset.tab;
-    const initialTab = tabButtons.some((button) => button.dataset.tab === hashTab)
-        ? hashTab
-        : defaultTab;
+    const defaultTab = tabs[0]?.dataset.tab;
+    const initialTab = tabs.some((tab) => tab.dataset.tab === hashTab) ? hashTab : defaultTab;
 
-    tabButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            setActiveTab(button.dataset.tab);
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", () => setActiveTab(tab.dataset.tab));
+        tab.addEventListener("keydown", (event) => {
+            const index = tabs.indexOf(tab);
+            let targetIndex = index;
+
+            if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+                targetIndex = (index + 1) % tabs.length;
+            } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+                targetIndex = (index - 1 + tabs.length) % tabs.length;
+            } else if (event.key === "Home") {
+                targetIndex = 0;
+            } else if (event.key === "End") {
+                targetIndex = tabs.length - 1;
+            } else {
+                return;
+            }
+
+            event.preventDefault();
+            setActiveTab(tabs[targetIndex].dataset.tab, { moveFocus: true });
         });
-        button.addEventListener("keydown", handleTabKeydown);
     });
 
-    menuCards.forEach((card) => {
-        card.addEventListener("click", () => openModal(card.dataset.modal, card));
-        card.addEventListener("keydown", (event) => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                openModal(card.dataset.modal, card);
-            }
+    menuButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            openDialog(document.getElementById(button.dataset.modal), button);
         });
     });
 
     modalClosers.forEach((button) => {
         button.addEventListener("click", () => {
-            closeModal(button.closest(".modal-overlay"));
+            closeDialog(button.closest(".dialog-overlay"));
         });
     });
 
-    document.querySelectorAll(".modal-overlay").forEach((modal) => {
+    modalOverlays.forEach((modal) => {
         modal.addEventListener("click", (event) => {
             if (event.target === modal) {
-                closeModal(modal);
+                closeDialog(modal);
             }
         });
     });
 
-    document.addEventListener("keydown", handleDocumentKeydown);
+    document.addEventListener("keydown", (event) => {
+        if (!activeDialog) {
+            return;
+        }
+
+        if (event.key === "Escape" && activeDialog.classList.contains("menu-modal")) {
+            closeDialog(activeDialog);
+            return;
+        }
+
+        if (event.key !== "Tab") {
+            return;
+        }
+
+        const focusable = getFocusableElements(activeDialog);
+        if (focusable.length === 0) {
+            event.preventDefault();
+            return;
+        }
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    });
 
     updateAudioToggleLabel(audioToggle);
 
@@ -226,11 +212,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (musicConsent && musicEnableButton && musicDisableButton) {
-        document.body.classList.add("modal-open");
+        openDialog(musicConsent);
 
         musicEnableButton.addEventListener("click", async () => {
-            musicConsent.hidden = true;
-            document.body.classList.remove("modal-open");
+            closeDialog(musicConsent);
             if (audioToggle) {
                 audioToggle.hidden = false;
             }
@@ -238,8 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         musicDisableButton.addEventListener("click", async () => {
-            musicConsent.hidden = true;
-            document.body.classList.remove("modal-open");
+            closeDialog(musicConsent);
             if (audioToggle) {
                 audioToggle.hidden = false;
             }
