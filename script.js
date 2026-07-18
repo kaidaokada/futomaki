@@ -79,6 +79,29 @@ function closeDialog(dialog) {
     }
 }
 
+function updateDishImageState(image) {
+    if (!image) {
+        return;
+    }
+
+    const container = image.closest(".dish-card-media, .dish-dialog-media");
+    if (!container) {
+        return;
+    }
+
+    container.classList.toggle("image-ready", image.complete && image.naturalWidth > 0);
+}
+
+function observeDishImage(image) {
+    if (!image) {
+        return;
+    }
+
+    image.addEventListener("load", () => updateDishImageState(image));
+    image.addEventListener("error", () => updateDishImageState(image));
+    updateDishImageState(image);
+}
+
 function updateAudioToggleLabel(toggle) {
     if (!toggle) {
         return;
@@ -113,6 +136,16 @@ async function setMusicEnabled(audio, toggle, enabled) {
 document.addEventListener("DOMContentLoaded", () => {
     const tabs = Array.from(document.querySelectorAll(".nav-tab"));
     const menuButtons = Array.from(document.querySelectorAll("[data-modal]"));
+    const dishButtons = Array.from(document.querySelectorAll("[data-dish-modal]"));
+    const dishImages = Array.from(
+        document.querySelectorAll(".dish-card-media img, .house-menu-dialog-card .dish-dialog-media img")
+    );
+    const dishModal = document.getElementById("dish-modal");
+    const dishModalImage = document.getElementById("dish-modal-image");
+    const dishModalCategory = document.getElementById("dish-modal-category");
+    const dishModalTitle = document.getElementById("dish-modal-title");
+    const dishModalDescription = document.getElementById("dish-modal-description");
+    const dishModalPrice = document.getElementById("dish-modal-price");
     const modalClosers = Array.from(document.querySelectorAll("[data-close-modal]"));
     const modalOverlays = Array.from(document.querySelectorAll(".menu-modal"));
     const audio = document.getElementById("bg-music");
@@ -150,6 +183,30 @@ document.addEventListener("DOMContentLoaded", () => {
     menuButtons.forEach((button) => {
         button.addEventListener("click", () => {
             openDialog(document.getElementById(button.dataset.modal), button);
+        });
+    });
+
+    dishImages.forEach(observeDishImage);
+    observeDishImage(dishModalImage);
+
+    dishButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            if (!dishModal || !dishModalImage || !dishModalCategory || !dishModalTitle || !dishModalDescription || !dishModalPrice) {
+                return;
+            }
+
+            const { dishCategory, dishName, dishImage, dishDescription, dishPrice } = button.dataset;
+            const modalMedia = dishModalImage.closest(".dish-dialog-media");
+
+            modalMedia?.classList.remove("image-ready");
+            dishModalImage.src = dishImage;
+            dishModalImage.alt = dishName;
+            dishModalCategory.textContent = dishCategory || "Sushi-Klassiker";
+            dishModalTitle.textContent = dishName;
+            dishModalDescription.textContent = dishDescription;
+            dishModalPrice.textContent = dishPrice;
+            updateDishImageState(dishModalImage);
+            openDialog(dishModal, button);
         });
     });
 
