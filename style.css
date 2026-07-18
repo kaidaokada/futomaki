@@ -162,6 +162,8 @@ a {
     display: grid;
     gap: 22px;
     max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 28px 24px 22px;
     border-radius: var(--radius-xl);
     color: #f5ecdf;
@@ -484,6 +486,94 @@ a {
     gap: 10px;
     padding: 2px 0 14px;
     border-bottom: 1px solid rgba(216, 187, 122, 0.1);
+}
+
+.traditions-banner {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2 / 1;
+    margin: 0;
+    border: 1px solid rgba(216, 187, 122, 0.2);
+    border-radius: 26px;
+    background: var(--panel-strong);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+}
+
+.traditions-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 62%, rgba(5, 7, 10, 0.38));
+}
+
+.traditions-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 42%;
+}
+
+.traditions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.tradition-card {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    padding: 22px;
+    border-top: 1px solid rgba(216, 187, 122, 0.22);
+    background:
+        linear-gradient(180deg, rgba(216, 187, 122, 0.045), rgba(92, 120, 138, 0.018) 72%, transparent);
+}
+
+.tradition-card .section-label,
+.traditions-note .section-label {
+    margin: 0;
+    color: #e7d1a0;
+}
+
+.tradition-card h3,
+.traditions-note h3 {
+    margin: 0;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    line-height: 1.04;
+    text-wrap: balance;
+}
+
+.tradition-card h3 {
+    font-size: clamp(1.75rem, 2.4vw, 2.2rem);
+}
+
+.tradition-card p:last-child,
+.traditions-note > p {
+    margin: 0;
+    color: var(--ink-soft);
+}
+
+.traditions-note {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+    gap: 28px;
+    align-items: center;
+    padding: 26px 28px;
+    border: 1px solid rgba(216, 187, 122, 0.2);
+    border-radius: 26px;
+    background:
+        radial-gradient(circle at top right, rgba(216, 187, 122, 0.14), transparent 34%),
+        linear-gradient(145deg, rgba(12, 16, 20, 0.96), rgba(26, 33, 41, 0.92));
+}
+
+.traditions-note > div {
+    display: grid;
+    gap: 10px;
+}
+
+.traditions-note h3 {
+    font-size: clamp(2rem, 3vw, 2.8rem);
 }
 
 .offer-grid {
@@ -1044,6 +1134,7 @@ a {
     .sidebar {
         position: static;
         max-height: none;
+        overflow-y: visible;
     }
 
     .sidebar-nav {
@@ -1074,6 +1165,10 @@ a {
     }
 
     .offer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .traditions-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1116,8 +1211,14 @@ a {
 
     .sidebar-nav,
     .offer-grid,
-    .menu-button-grid {
+    .menu-button-grid,
+    .traditions-grid,
+    .traditions-note {
         grid-template-columns: 1fr;
+    }
+
+    .traditions-banner {
+        aspect-ratio: 4 / 3;
     }
 
     .dish-card-grid {
