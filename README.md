@@ -38,4 +38,4 @@ futomaki/
 └── style.css                  Gestaltung und responsives Layout
 ```
 
-Neue Gerichtsbilder werden kleingeschrieben nach dem Gericht benannt und in der passenden Menükategorie abgelegt, zum Beispiel `assets/images/menu/sushi/nigiri.png`.
+Neue Gerichtsbilder werden kleingeschrieben nach dem Gericht benannt und in der passenden Menükategorie abgelegt, zum Beispiel `assets/images/menu/sushi/nigiri.png`. Die Website verwendet daneben eine optimierte WebP-Datei mit demselben Namen (`nigiri.webp`); das PNG bleibt als bearbeitbares Original erhalten.
