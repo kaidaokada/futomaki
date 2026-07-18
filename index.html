@@ -17,7 +17,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:description" content="Neo-modernes Sushi-Restaurant in FFXIV mit offener Küche, klarer Gestaltung und ruhiger Atmosphäre.">
     <meta name="twitter:image" content="https://kaidaokada.github.io/futomaki/assets/images/site/preview.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260718">
 </head>
 <body>
     <a class="skip-link" href="#content-stage">Zum Inhalt springen</a>
@@ -33,6 +33,7 @@
             <nav class="sidebar-nav" aria-label="Hauptnavigation" role="tablist">
                 <button id="tab-willkommen" class="nav-tab active" type="button" role="tab" aria-selected="true" aria-controls="panel-willkommen" tabindex="0" data-tab="willkommen"><span class="nav-kicker">Auftakt</span><span class="nav-title">Das Haus</span></button>
                 <button id="tab-angebote" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-angebote" tabindex="-1" data-tab="angebote"><span class="nav-kicker">Atmosphäre</span><span class="nav-title">Angebote</span></button>
+                <button id="tab-erlebnis" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-erlebnis" tabindex="-1" data-tab="erlebnis"><span class="nav-kicker">Hingashi</span><span class="nav-title">Erlebnis / Traditionen</span></button>
                 <button id="tab-speisen" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-speisen" tabindex="-1" data-tab="speisen"><span class="nav-kicker">Kaida</span><span class="nav-title">Sushi</span></button>
                 <button id="tab-getraenke" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-getraenke" tabindex="-1" data-tab="getraenke"><span class="nav-kicker">Yokomo</span><span class="nav-title">Küche</span></button>
                 <button id="tab-team" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-team" tabindex="-1" data-tab="team"><span class="nav-kicker">Kalea</span><span class="nav-title">Getränke</span></button>
@@ -102,6 +103,64 @@
                     <article class="offer-card tone-sand"><h3>Neo-moderne Atmosphäre aus Kugane</h3><p>Walnussholz, heller Steinboden und weiches Licht geben dem Restaurant einen zeitgemäßen, aber ruhigen Charakter.</p></article>
                     <article class="feature-card"><p class="section-label">Loungige Randplätze</p><h3>Etwas ruhiger, aber weiter mitten im Haus.</h3><p>Für Gäste, die es etwas geschützter mögen, gibt es drei offen gestaltete Nischen mit dunklerem Holz und gedimmterem Licht.</p><p class="feature-fee">Zusätzliche Servicegebühr: <strong>75 Gil</strong></p></article>
                 </div>
+            </section>
+
+            <section id="panel-erlebnis" class="content-panel" role="tabpanel" aria-labelledby="tab-erlebnis" data-panel hidden>
+                <div class="panel-header">
+                    <p class="section-label">Hingashi erleben</p>
+                    <h2>Ein Stück Hingashi, mitten im Westen.</h2>
+                    <p class="lead">Im Futomaki begegnen euch kleine Gesten aus Hingashi. Sie erzählen von Aufmerksamkeit, Dankbarkeit und gemeinsamer Gastlichkeit. Wer möchte, darf sie während des Besuchs aufgreifen – sie sind eine Einladung, keine Erwartung.</p>
+                </div>
+
+                <figure class="traditions-banner">
+                    <img src="assets/images/site/dasteam.webp" alt="Kaida, Yokomo und Kalea im Futomaki" loading="lazy" decoding="async">
+                </figure>
+
+                <div class="traditions-grid">
+                    <article class="tradition-card">
+                        <p class="section-label">Begrüßung</p>
+                        <h3>Willkommen im Haus</h3>
+                        <p>Beim Eintreten begrüßt euch die Belegschaft möglicherweise mit einem deutlichen „Irasshaimase“ und einer Verbeugung. Die Geste heißt euch willkommen und zeigt, dass eure Anwesenheit wahrgenommen und geschätzt wird.</p>
+                    </article>
+
+                    <article class="tradition-card">
+                        <p class="section-label">Ankommen</p>
+                        <h3>Das Oshibori</h3>
+                        <p>Zu jeder Mahlzeit wird ein frisches, leicht erwärmtes Tuch gereicht. Es dient dazu, vor dem Essen die Hände zu reinigen, und markiert zugleich einen ruhigen Übergang zwischen Ankommen und Genießen.</p>
+                    </article>
+
+                    <article class="tradition-card">
+                        <p class="section-label">Aufmerksamkeit</p>
+                        <h3>Übergabe mit beiden Händen</h3>
+                        <p>Karten, Schalen, Getränke und persönliche Gegenstände werden möglichst mit beiden Händen gereicht. Das ist keine umständliche Förmlichkeit, sondern ein Zeichen ungeteilter Aufmerksamkeit.</p>
+                    </article>
+
+                    <article class="tradition-card">
+                        <p class="section-label">Gemeinschaft</p>
+                        <h3>Einschenken füreinander</h3>
+                        <p>Getränke aus einer gemeinsamen Flasche werden traditionell zuerst den anderen Personen am Tisch eingeschenkt. Die Flasche wird dabei häufig mit beiden Händen gehalten. Die kleine Geste stellt die Gemeinschaft über den eigenen Becher.</p>
+                    </article>
+
+                    <article class="tradition-card">
+                        <p class="section-label">Dankbarkeit</p>
+                        <h3>Vor und nach der Mahlzeit</h3>
+                        <p>„Itadakimasu“ begleitet den Beginn einer Mahlzeit und würdigt die Zutaten sowie alle, die an ihrer Zubereitung beteiligt waren. „Gochisousama“ drückt nach dem Essen Dankbarkeit für die empfangene Gastfreundschaft aus.</p>
+                    </article>
+
+                    <article class="tradition-card">
+                        <p class="section-label">Gastlichkeit</p>
+                        <h3>Keine Trinkgelder</h3>
+                        <p>Aufmerksamer Service ist im Futomaki keine zusätzliche Leistung, sondern Teil der Gastfreundschaft. Deshalb nimmt das Haus kein Trinkgeld an. Ein freundliches Wort, ein Lächeln oder ein späterer Besuch sind Anerkennung genug.</p>
+                    </article>
+                </div>
+
+                <article class="traditions-note">
+                    <div>
+                        <p class="section-label">Omotenashi</p>
+                        <h3>Gastlichkeit ohne Erwartung.</h3>
+                    </div>
+                    <p>All diese Gesten verbindet eine gemeinsame Idee: Gäste aufmerksam zu umsorgen, ohne dafür eine Gegenleistung zu erwarten. Im Futomaki soll niemand eine fremde Rolle spielen müssen. Die Traditionen sind lediglich eine Einladung, Hingashi für einen Abend ein wenig näher kennenzulernen.</p>
+                </article>
             </section>
 
             <section id="panel-speisen" class="content-panel" role="tabpanel" aria-labelledby="tab-speisen" data-panel hidden>
