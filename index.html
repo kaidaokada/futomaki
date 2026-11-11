@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futomaki | House Above Kugane</title>
-    <meta name="description" content="Futomaki ist ein fiktives Sushi-Haus in FFXIV: gutes Essen, ruhige Atmosphäre und ein Haus über den Lichtern Kuganes.">
+    <title>Futomaki | Sushi in den Lavendelbeeten</title>
+    <meta name="description" content="Futomaki ist ein fiktives Sushi-Haus in FFXIV: gutes Essen, ruhige Atmosphäre und ein Haus in den Lavendelbeeten Gridanias.">
     <meta name="theme-color" content="#134e4a">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://kaidaokada.github.io/futomaki/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23134e4a%22/><path d=%22M18 64c16-28 48-30 64-12%22 stroke=%22%23f6f2e8%22 stroke-width=%228%22 fill=%22none%22 stroke-linecap=%22round%22/><circle cx=%2250%22 cy=%2244%22 r=%2210%22 fill=%22%23dd6b20%22/></svg>">
-    <meta property="og:title" content="Futomaki | House Above Kugane">
+    <meta property="og:title" content="Futomaki | Sushi in den Lavendelbeeten">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kaidaokada.github.io/futomaki/">
     <meta property="og:image" content="https://kaidaokada.github.io/futomaki/assets/images/site/preview.png">
@@ -17,7 +17,13 @@
     <meta property="og:image:height" content="630">
     <meta property="og:description" content="Neo-modernes Sushi-Restaurant in FFXIV mit offener Küche, klarer Gestaltung und ruhiger Atmosphäre.">
     <meta name="twitter:image" content="https://kaidaokada.github.io/futomaki/assets/images/site/preview.png">
-    <link rel="stylesheet" href="style.css?v=20260718">
+    <link rel="stylesheet" href="style.css?v=20261111">
+    <noscript><style>
+        .sidebar-nav, .section-note, .dish-image-placeholder { display: none; }
+        .content-panel[hidden] { display: grid; }
+        .dish-card-media img { opacity: 1; }
+        .content-panel + .content-panel { margin-top: 3rem; }
+    </style></noscript>
 </head>
 <body>
     <a class="skip-link" href="#content-stage">Zum Inhalt springen</a>
@@ -25,7 +31,7 @@
     <div class="app-shell">
         <aside class="sidebar">
             <div class="brand-block">
-                <p class="eyebrow">House Above Kugane</p>
+                <p class="eyebrow">Sushi in den Lavendelbeeten</p>
                 <h1>Futomaki</h1>
                 <p class="brand-copy">Ein ruhiges Haus mit guter Küche in den Lavendelbeeten Gridanias.</p>
             </div>
@@ -46,6 +52,7 @@
         </aside>
 
         <main id="content-stage" class="content-stage" tabindex="-1">
+            <noscript><p>JavaScript ist deaktiviert. Alle Bereiche werden untereinander angezeigt; Bildvergrößerungen und Musik sind nicht verfügbar.</p></noscript>
             <section id="panel-willkommen" class="content-panel" role="tabpanel" aria-labelledby="tab-willkommen" data-panel>
                 <div class="hero-card">
                     <div class="hero-copy">
@@ -113,7 +120,7 @@
                 </div>
 
                 <figure class="traditions-banner">
-                    <img src="assets/images/site/dasteam.webp" alt="Kaida, Yokomo und Kalea im Futomaki" loading="lazy" decoding="async">
+                    <img src="assets/images/site/dasteam.webp?v=8d5787738f" alt="Kaida, Yokomo und Kalea im Futomaki" loading="lazy" decoding="async">
                 </figure>
 
                 <div class="traditions-grid">
@@ -194,7 +201,7 @@
                     <aside class="menu-page-aside">
                         <section class="surface-card profile-feature profile-feature-vertical">
                             <div class="profile-feature-image">
-                                <img src="assets/images/team/kaida.webp" alt="Porträt von Kaida" loading="lazy" decoding="async">
+                                <img src="assets/images/team/kaida.webp?v=dbe4e995a9" alt="Porträt von Kaida" loading="lazy" decoding="async">
                             </div>
                             <div class="profile-feature-copy">
                                 <p class="section-label">Hausleitung &amp; Sushi</p>
@@ -267,7 +274,7 @@
                     <aside class="menu-page-aside">
                         <section class="surface-card profile-feature profile-feature-vertical">
                             <div class="profile-feature-image">
-                                <img src="assets/images/team/yokomo.webp" alt="Porträt von Yokomo" loading="lazy" decoding="async">
+                                <img src="assets/images/team/yokomo.webp?v=e4e0cac410" alt="Porträt von Yokomo" loading="lazy" decoding="async">
                             </div>
                             <div class="profile-feature-copy">
                                 <p class="section-label">Warme Küche</p>
@@ -371,7 +378,7 @@
                     <aside class="menu-page-aside">
                         <section class="surface-card profile-feature profile-feature-vertical">
                             <div class="profile-feature-image">
-                                <img src="assets/images/team/kalea.webp" alt="Porträt von Kalea" loading="lazy" decoding="async">
+                                <img src="assets/images/team/kalea.webp?v=2c02f5375e" alt="Porträt von Kalea" loading="lazy" decoding="async">
                             </div>
                             <div class="profile-feature-copy">
                                 <p class="section-label">Getränke &amp; Gastraum</p>
@@ -391,7 +398,7 @@
 
     <audio id="bg-music" loop preload="none" aria-hidden="true"><source src="assets/audio/futomaki.ogg" type="audio/ogg"></audio>
 
-    <div id="music-consent" class="dialog-overlay" role="dialog" aria-modal="true" aria-labelledby="music-consent-title" aria-describedby="music-consent-copy">
+    <div id="music-consent" class="dialog-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="music-consent-title" aria-describedby="music-consent-copy">
         <div class="dialog-card">
             <p class="section-label">Atmosphäre</p>
             <h2 id="music-consent-title">Soll Hintergrundmusik abgespielt werden?</h2>
@@ -409,7 +416,7 @@
         <div class="dialog-card dish-dialog-card">
             <button class="close-dialog" type="button" aria-label="Gericht schliessen" data-close-modal>&times;</button>
             <div class="dish-dialog-media">
-                <img id="dish-modal-image" src="" alt="">
+                <img id="dish-modal-image" alt="">
                 <span class="dish-image-placeholder" aria-hidden="true">Bild folgt</span>
             </div>
             <div class="dish-dialog-copy">
@@ -432,6 +439,6 @@
     <div id="modal-wald" class="dialog-overlay menu-modal" role="dialog" aria-modal="true" aria-labelledby="modal-wald-title" hidden><div class="dialog-card dish-dialog-card house-menu-dialog-card"><button class="close-dialog" type="button" aria-label="Menü schliessen" data-close-modal>&times;</button><div class="dish-dialog-media"><img src="assets/images/menu/house-menus/ruf-des-waldes.webp" alt="Der Ruf des Waldes" loading="lazy" decoding="async"><span class="dish-image-placeholder" aria-hidden="true">Bild folgt</span></div><div class="dish-dialog-copy"><p class="section-label">Hausmenü</p><div class="dish-dialog-heading"><h2 id="modal-wald-title">Der Ruf des Waldes</h2><span class="dialog-price">150 Gil</span></div><p class="dialog-tag">Natürlich &amp; erdig</p><p>1 kl. Schale Pilze, 1 gegrillter Fisch (ganz), 3 Stk. Kräuter-Tempura, 1 Amazake.</p><p class="dialog-note">Ein Menü für leisere Abende, bei denen Duft, Rauch und Naturtöne im Vordergrund stehen.</p></div></div></div>
     <div id="modal-klinge" class="dialog-overlay menu-modal" role="dialog" aria-modal="true" aria-labelledby="modal-klinge-title" hidden><div class="dialog-card dish-dialog-card house-menu-dialog-card"><button class="close-dialog" type="button" aria-label="Menü schliessen" data-close-modal>&times;</button><div class="dish-dialog-media"><img src="assets/images/menu/house-menus/brennende-klinge.webp" alt="Die brennende Klinge" loading="lazy" decoding="async"><span class="dish-image-placeholder" aria-hidden="true">Bild folgt</span></div><div class="dish-dialog-copy"><p class="section-label">Hausmenü</p><div class="dish-dialog-heading"><h2 id="modal-klinge-title">Die brennende Klinge</h2><span class="dialog-price">150 Gil</span></div><p class="dialog-tag">Scharf &amp; intensiv</p><p>1 Schüssel scharfe Ramen, 3 Stk. Gyoza, 4 Stk. Spicy Tuna Roll.</p><p class="dialog-note">Für alle, die es gern etwas direkter und schärfer mögen.</p></div></div></div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20261111"></script>
 </body>
 </html>

@@ -1,21 +1,25 @@
 let activeDialog = null;
 let lastFocusedElement = null;
 let musicEnabled = false;
+let audioRequest = 0;
 
 function getFocusableElements(container) {
     return Array.from(
         container.querySelectorAll(
             'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
         )
-    );
+    ).filter((element) => element.getClientRects().length > 0 && !element.closest("[inert]"));
 }
 
 function updateBodyLockState() {
     document.body.classList.toggle("modal-open", Boolean(activeDialog));
+    document.querySelectorAll(".app-shell, .site-footer, #audio-toggle").forEach((element) => {
+        element.inert = Boolean(activeDialog);
+    });
 }
 
 function setActiveTab(tabName, options = {}) {
-    const { updateHash = true, moveFocus = false } = options;
+    const { updateHash = true, moveFocus = false, scroll = true } = options;
     const tabs = Array.from(document.querySelectorAll(".nav-tab"));
     const panels = Array.from(document.querySelectorAll("[data-panel]"));
     const nextTab = tabs.find((tab) => tab.dataset.tab === tabName);
@@ -37,14 +41,19 @@ function setActiveTab(tabName, options = {}) {
         panel.setAttribute("aria-hidden", String(panel !== nextPanel));
     });
 
-    document.getElementById("content-stage")?.scrollTo({ top: 0, behavior: "auto" });
+    if (scroll) {
+        const top = window.matchMedia("(max-width: 1100px)").matches
+            ? Math.max(0, nextPanel.getBoundingClientRect().top + window.scrollY - 16)
+            : 0;
+        window.scrollTo({ top, behavior: "instant" });
+    }
 
-    if (updateHash) {
-        history.replaceState({ tab: tabName }, "", `#${tabName}`);
+    if (updateHash && window.location.hash !== `#${tabName}`) {
+        history.pushState({ tab: tabName }, "", `#${tabName}`);
     }
 
     if (moveFocus) {
-        nextTab.focus();
+        nextTab.focus({ preventScroll: true });
     }
 }
 
@@ -53,6 +62,9 @@ function openDialog(dialog, trigger) {
         return;
     }
 
+    if (activeDialog && activeDialog !== dialog) {
+        closeDialog(activeDialog);
+    }
     lastFocusedElement = trigger || document.activeElement;
     dialog.hidden = false;
     activeDialog = dialog;
@@ -75,7 +87,7 @@ function closeDialog(dialog) {
     updateBodyLockState();
 
     if (lastFocusedElement instanceof HTMLElement) {
-        lastFocusedElement.focus();
+        lastFocusedElement.focus({ preventScroll: true });
     }
 }
 
@@ -112,28 +124,40 @@ function updateAudioToggleLabel(toggle) {
 }
 
 async function setMusicEnabled(audio, toggle, enabled) {
-    musicEnabled = enabled;
+    const request = ++audioRequest;
+    musicEnabled = Boolean(audio && enabled);
     updateAudioToggleLabel(toggle);
-
-    if (!audio) {
+    if (!audio) return;
+    if (!enabled) {
+        audio.pause();
+        audio.currentTime = 0;
         return;
     }
-
-    if (enabled) {
-        try {
-            await audio.play();
-        } catch (_error) {
-            musicEnabled = false;
-            updateAudioToggleLabel(toggle);
-        }
-        return;
+    try {
+        await audio.play();
+    } catch (_error) {
+        if (request !== audioRequest) return;
+        musicEnabled = false;
+        updateAudioToggleLabel(toggle);
+        if (toggle) toggle.title = "Musik konnte nicht gestartet werden. Zum erneuten Versuch anklicken.";
     }
-
-    audio.pause();
-    audio.currentTime = 0;
 }
 
+// Capture image errors, including images loaded before initialization.
+function usePngFallback(image) {
+    const source = image.getAttribute("src") || "";
+    if (/\.webp(?:\?|$)/i.test(source)) {
+        image.src = source.replace(/\.webp(?=\?|$)/i, ".png");
+    }
+}
+document.addEventListener("error", (event) => {
+    if (event.target instanceof HTMLImageElement) usePngFallback(event.target);
+}, true);
+
 document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("img").forEach((image) => {
+        if (image.complete && image.naturalWidth === 0) usePngFallback(image);
+    });
     const tabs = Array.from(document.querySelectorAll(".nav-tab"));
     const menuButtons = Array.from(document.querySelectorAll("[data-modal]"));
     const dishButtons = Array.from(document.querySelectorAll("[data-dish-modal]"));
@@ -156,6 +180,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const hashTab = window.location.hash.replace("#", "");
     const defaultTab = tabs[0]?.dataset.tab;
     const initialTab = tabs.some((tab) => tab.dataset.tab === hashTab) ? hashTab : defaultTab;
+
+    window.addEventListener("hashchange", () => {
+        const name = window.location.hash.slice(1);
+        const target = tabs.some((tab) => tab.dataset.tab === name) ? name
+            : (!name ? defaultTab : null);
+        if (!target) return;
+        if (activeDialog?.classList.contains("menu-modal")) closeDialog(activeDialog);
+        setActiveTab(target, { updateHash: false });
+    });
 
     tabs.forEach((tab) => {
         tab.addEventListener("click", () => setActiveTab(tab.dataset.tab));
@@ -229,8 +262,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        if (event.key === "Escape" && activeDialog.classList.contains("menu-modal")) {
-            closeDialog(activeDialog);
+        if (event.key === "Escape") {
+            event.preventDefault();
+            if (activeDialog === musicConsent) {
+                musicDisableButton?.click();
+            } else {
+                closeDialog(activeDialog);
+            }
             return;
         }
 
@@ -247,7 +285,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
 
-        if (event.shiftKey && document.activeElement === first) {
+        if (!activeDialog.contains(document.activeElement)) {
+            event.preventDefault();
+            first.focus();
+        } else if (event.shiftKey && document.activeElement === first) {
             event.preventDefault();
             last.focus();
         } else if (!event.shiftKey && document.activeElement === last) {
@@ -259,9 +300,14 @@ document.addEventListener("DOMContentLoaded", () => {
     updateAudioToggleLabel(audioToggle);
 
     if (audio && audioToggle) {
-        audio.addEventListener("error", () => {
-            audioToggle.hidden = true;
-        });
+        const reportAudioError = () => {
+            ++audioRequest;
+            musicEnabled = false;
+            updateAudioToggleLabel(audioToggle);
+            audioToggle.title = "Die Musikdatei konnte nicht geladen werden.";
+        };
+        audio.addEventListener("error", reportAudioError);
+        audio.querySelectorAll("source").forEach((source) => source.addEventListener("error", reportAudioError));
 
         audioToggle.addEventListener("click", async () => {
             await setMusicEnabled(audio, audioToggle, !musicEnabled);
@@ -289,6 +335,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (initialTab) {
-        setActiveTab(initialTab, { updateHash: Boolean(hashTab) });
+        setActiveTab(initialTab, { updateHash: false, scroll: false });
     }
 });

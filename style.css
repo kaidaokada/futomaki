@@ -126,7 +126,7 @@ a {
 }
 
 :focus-visible {
-    outline: 3px solid rgba(31, 109, 103, 0.32);
+    outline: 3px solid var(--gold);
     outline-offset: 4px;
 }
 
@@ -1277,3 +1277,6 @@ a {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Keep dialogs inside short and mobile viewports. */
+.dialog-overlay { padding: 14px; }
